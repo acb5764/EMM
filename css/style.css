@@ -108,7 +108,8 @@ main { max-width: var(--max-width); margin: 0 auto; padding: 0 1.25rem; }
 /* Card grid */
 .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
 .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
-.card-photo { position: relative; aspect-ratio: 4 / 3; background: var(--color-bg-alt); }
+.card-photo { position: relative; aspect-ratio: 4 / 3; background: var(--color-bg-alt); min-height: 0; }
+.card-photo.no-photo { aspect-ratio: 8 / 3; }
 .card-photo img { width: 100%; height: 100%; object-fit: cover; }
 .card-body { padding: 1rem; flex: 1; }
 .card-body h3 { font-size: 1.05rem; margin-bottom: 0.25rem; }

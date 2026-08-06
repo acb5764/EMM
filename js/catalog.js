@@ -39,7 +39,8 @@ function formatPrice(item) {
 function itemCardHtml(item, opts = {}) {
   const { showActions = true } = opts;
   const avail = computeAvailability(item);
-  const photo = (item.photos && item.photos[0]) || PLACEHOLDER_IMG;
+  const hasPhoto = !!(item.photos && item.photos[0]);
+  const photo = hasPhoto ? item.photos[0] : PLACEHOLDER_IMG;
   const disabled = avail.label === 'Sold Out' || avail.label === 'Coming Soon';
 
   const actionsHtml = showActions
@@ -53,9 +54,9 @@ function itemCardHtml(item, opts = {}) {
 
   return `
     <article class="card" data-id="${item.id}">
-      <div class="card-photo">
+      <div class="card-photo${hasPhoto ? '' : ' no-photo'}">
         <img src="${photo}" alt="${escapeHtml(item.name)}" loading="lazy"
-             onerror="this.onerror=null;this.src='${PLACEHOLDER_IMG}';">
+             onerror="this.onerror=null;this.src='${PLACEHOLDER_IMG}';this.closest('.card-photo').classList.add('no-photo');">
         <span class="badge ${avail.cssClass}">${avail.label}</span>
       </div>
       <div class="card-body">
