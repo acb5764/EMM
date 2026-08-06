@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){var t=localStorage.getItem('emrTheme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request to Buy — Em_R_Mangoes</title>
+<meta name="description" content="Review your selected items and submit a request to buy from Em_R_Mangoes.">
+<link rel="icon" type="image/jpeg" href="images/site/logo.jpg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="request">
+<site-header></site-header>
+
+<main>
+  <section class="section">
+    <h1>Request to Buy</h1>
+    <p class="muted">This is a request, not an online purchase — we'll follow up to confirm availability, final pricing, and pickup details. No payment is collected here.</p>
+
+    <p id="request-empty" class="empty-state">Your request list is empty. <a href="catalog.html">Browse the catalog</a> to add items.</p>
+
+    <div id="request-items"></div>
+    <p id="request-total" class="request-total"></p>
+
+    <form id="request-form" hidden>
+      <div class="honeypot" aria-hidden="true">
+        <label>Leave this field blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <textarea name="Order Summary" id="order-summary-field" hidden></textarea>
+
+      <label>Name*
+        <input type="text" name="name" required autocomplete="name">
+      </label>
+      <label>Email*
+        <input type="email" name="email" required autocomplete="email">
+      </label>
+      <label>Phone
+        <input type="tel" name="phone" autocomplete="tel">
+      </label>
+      <label>Notes
+        <textarea name="notes" rows="3" placeholder="Preferred pickup time, questions, etc."></textarea>
+      </label>
+
+      <button type="submit" class="btn btn-primary">Submit Request</button>
+      <p id="request-status" class="form-status" role="status"></p>
+    </form>
+  </section>
+</main>
+
+<site-footer></site-footer>
+<script defer src="js/cart.js"></script>
+<script defer src="js/partials.js"></script>
+<script defer src="js/catalog.js"></script>
+<script defer src="js/request.js"></script>
+</body>
+</html>

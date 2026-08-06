@@ -1,0 +1,1 @@
+This is the starting website project that is meant to be a combination of an inventory management system and a display for current inventory. I want to host this on GitHub pages for minimal hosting overhead. The website should be an effective upgrade to earthmothermango.com. Lets plan this together!

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){var t=localStorage.getItem('emrTheme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalog — Em_R_Mangoes</title>
+<meta name="description" content="Browse current inventory of mango trees, fresh fruit, vegetables, herbs, and cottage foods from Em_R_Mangoes.">
+<link rel="icon" type="image/jpeg" href="images/site/logo.jpg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="catalog">
+<site-header></site-header>
+
+<main>
+  <section class="section catalog-header">
+    <h1>Current Inventory</h1>
+    <p id="inventory-updated" class="muted"></p>
+    <div class="catalog-controls">
+      <div class="category-filters" role="group" aria-label="Filter by category">
+        <button type="button" class="category-filter active" data-category="all">All</button>
+        <button type="button" class="category-filter" data-category="trees-scions">Trees &amp; Scions</button>
+        <button type="button" class="category-filter" data-category="fresh-fruit">Fresh Fruit</button>
+        <button type="button" class="category-filter" data-category="vegetables-herbs">Vegetables &amp; Herbs</button>
+        <button type="button" class="category-filter" data-category="cottage-foods">Cottage Foods</button>
+      </div>
+      <input type="search" id="catalog-search" placeholder="Search inventory..." aria-label="Search inventory">
+    </div>
+  </section>
+
+  <section class="section">
+    <div id="catalog-grid" class="card-grid" aria-live="polite"></div>
+  </section>
+</main>
+
+<site-footer></site-footer>
+<script defer src="js/cart.js"></script>
+<script defer src="js/partials.js"></script>
+<script defer src="js/catalog.js"></script>
+</body>
+</html>

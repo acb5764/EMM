@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){var t=localStorage.getItem('emrTheme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Em_R_Mangoes</title>
+<meta name="description" content="Contact Em_R_Mangoes: address, phone, email, hours, and a general inquiry form.">
+<link rel="icon" type="image/jpeg" href="images/site/logo.jpg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+<site-header></site-header>
+
+<main>
+  <section class="section">
+    <h1>Contact Us</h1>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p><strong>Address:</strong><br>3555 Tadlock Avenue<br>Malabar, FL</p>
+        <p><strong>Phone:</strong> <a href="tel:13042791714">304-279-1714</a> (text or call Karen)</p>
+        <p><strong>Email:</strong> <a href="mailto:Em.r.mangos@gmail.com">Em.r.mangos@gmail.com</a></p>
+        <p><strong>Hours:</strong> By appointment only — weekends, evenings, and some weekdays.</p>
+        <!-- TODO: confirm the Pay Now link target (PayPal/Venmo/Square/etc.) from the live earthmothermango.com page source and update the href below -->
+        <p><a class="btn btn-secondary" href="#" id="pay-now-link">Pay Now</a></p>
+      </div>
+      <div class="contact-map">
+        <iframe
+          title="Em_R_Mangoes location map"
+          src="https://www.google.com/maps?q=3555+Tadlock+Avenue,+Malabar,+FL&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+
+    <h2>General Inquiry</h2>
+    <p class="muted">Have a question that isn't about a specific order? Send us a message here. For product requests, use <a href="request.html">Request to Buy</a> from the catalog instead.</p>
+    <form id="contact-form">
+      <div class="honeypot" aria-hidden="true">
+        <label>Leave this field blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <label>Name*
+        <input type="text" name="name" required autocomplete="name">
+      </label>
+      <label>Email*
+        <input type="email" name="email" required autocomplete="email">
+      </label>
+      <label>Message*
+        <textarea name="message" rows="4" required></textarea>
+      </label>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+      <p id="contact-status" class="form-status" role="status"></p>
+    </form>
+  </section>
+</main>
+
+<site-footer></site-footer>
+<script defer src="js/cart.js"></script>
+<script defer src="js/partials.js"></script>
+<script defer src="js/contact.js"></script>
+</body>
+</html>
