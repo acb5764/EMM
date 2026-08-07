@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (updatedEl && data.updated) updatedEl.textContent = `Inventory last updated: ${data.updated}`;
   } catch (err) {
     console.error(err);
-    tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Sorry, we could not load inventory right now.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="4" class="empty-state">Sorry, we could not load inventory right now.</td></tr>';
     return;
   }
 
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
 
     if (filtered.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="6" class="empty-state">No items match your filters.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="4" class="empty-state">No items match your filters.</td></tr>';
       return;
     }
 
@@ -57,15 +57,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     filtered.forEach((item) => {
       if (item.category !== lastCategory) {
         lastCategory = item.category;
-        rows.push(`<tr class="inventory-category-row"><td colspan="6">${escapeHtml(CATEGORY_LABELS[item.category] || item.category)}</td></tr>`);
+        rows.push(`<tr class="inventory-category-row"><td colspan="4">${escapeHtml(CATEGORY_LABELS[item.category] || item.category)}</td></tr>`);
       }
       const avail = computeAvailability(item);
       rows.push(`<tr>
         <td>${escapeHtml(item.name)}</td>
-        <td>${item.variety ? escapeHtml(item.variety) : '—'}</td>
         <td>${escapeHtml(item.unit)}</td>
         <td class="qty-cell">${item.quantityOnHand}</td>
-        <td>${item.lowStockThreshold ?? 3}</td>
         <td><span class="badge badge-inline ${avail.cssClass}">${avail.label}</span></td>
       </tr>`);
     });
