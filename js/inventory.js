@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       const avail = computeAvailability(item);
       rows.push(`<tr>
         <td>${escapeHtml(item.name)}</td>
-        <td>${escapeHtml(item.unit)}</td>
         <td class="qty-cell">${item.quantityOnHand}</td>
+        <td>${escapeHtml(item.unit)}</td>
         <td><span class="badge badge-inline ${avail.cssClass}">${avail.label}</span></td>
       </tr>`);
     });
