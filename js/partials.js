@@ -33,6 +33,7 @@ class SiteHeader extends HTMLElement {
           ${navItem('index.html', 'Home', 'home')}
           ${navItem('about.html', 'About', 'about')}
           ${navItem('catalog.html', 'Catalog', 'catalog')}
+          ${navItem('inventory.html', 'Inventory', 'inventory')}
           ${navItem('request.html', 'Request to Buy', 'request', ' <span class="cart-badge" data-cart-badge hidden>0</span>')}
           ${navItem('contact.html', 'Contact', 'contact')}
         </nav>

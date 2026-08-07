@@ -65,6 +65,7 @@ function itemCardHtml(item, opts = {}) {
         <p class="card-desc">${escapeHtml(item.description)}</p>
         ${item.seasonNote ? `<p class="card-season">${escapeHtml(item.seasonNote)}</p>` : ''}
         <p class="card-price">${formatPrice(item)}</p>
+        ${avail.label !== 'Coming Soon' ? `<p class="card-qty">${item.quantityOnHand} on hand</p>` : ''}
       </div>
       ${actionsHtml}
     </article>`;

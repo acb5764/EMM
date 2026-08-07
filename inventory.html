@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){var t=localStorage.getItem('emrTheme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Inventory — Em_R_Mangoes</title>
+<meta name="description" content="Full inventory count table for Em_R_Mangoes staff and field use.">
+<link rel="icon" type="image/jpeg" href="images/site/logo.jpg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="inventory">
+<site-header></site-header>
+
+<main>
+  <section class="section catalog-header">
+    <h1>Full Inventory</h1>
+    <p id="inventory-updated" class="muted"></p>
+    <p class="muted">For field/staff use — read-only. To change a count, edit <code>data/inventory.json</code> directly.</p>
+
+    <div id="inventory-summary" class="inventory-summary"></div>
+
+    <div class="catalog-controls">
+      <div class="category-filters" role="group" aria-label="Filter by category">
+        <button type="button" class="category-filter active" data-category="all">All</button>
+        <button type="button" class="category-filter" data-category="trees-scions">Trees &amp; Scions</button>
+        <button type="button" class="category-filter" data-category="fresh-fruit">Fresh Fruit</button>
+        <button type="button" class="category-filter" data-category="vegetables-herbs">Vegetables &amp; Herbs</button>
+        <button type="button" class="category-filter" data-category="cottage-foods">Cottage Foods</button>
+      </div>
+      <input type="search" id="inventory-search" placeholder="Search inventory..." aria-label="Search inventory">
+      <label class="inventory-issues-toggle">
+        <input type="checkbox" id="inventory-issues-toggle">
+        Low stock &amp; sold out only
+      </label>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="inventory-table-wrap">
+      <table class="inventory-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Variety</th>
+            <th>Unit</th>
+            <th>On Hand</th>
+            <th>Low Stock At</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="inventory-tbody" aria-live="polite"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<site-footer></site-footer>
+<script defer src="js/cart.js"></script>
+<script defer src="js/partials.js"></script>
+<script defer src="js/catalog.js"></script>
+<script defer src="js/inventory.js"></script>
+</body>
+</html>
