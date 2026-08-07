@@ -6,7 +6,8 @@
       "name": "Alphonso Mango Tree",
       "category": "trees-scions",
       "variety": "Alphonso",
-      "description": "Grafted Alphonso mango tree grown on-site in a 3-gallon pot. India's celebrated “king of mangoes” — rich, spicy-sweet, fiberless yellow flesh. Ripens late June into July.",
+      "propagation": "grafted",
+      "description": "Alphonso mango tree in a 3-gallon pot. India's celebrated “king of mangoes” — rich, spicy-sweet, fiberless yellow flesh. Ripens late June into July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -14,9 +15,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-alphonso-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-alphonso-1.jpg"],
       "featured": true,
       "sortOrder": 10
     },
@@ -25,7 +24,8 @@
       "name": "Ataulfo Mango Tree",
       "category": "trees-scions",
       "variety": "Ataulfo",
-      "description": "Grafted Ataulfo mango tree grown on-site in a 3-gallon pot. Mexico's famous small yellow “honey” mango — firm but fiberless flesh with a mild subacid taste that sweetens as it wrinkles. Late June into July.",
+      "propagation": "grafted",
+      "description": "Ataulfo mango tree in a 3-gallon pot. Mexico's famous small yellow “honey” mango — firm but fiberless flesh with a mild subacid taste that sweetens as it wrinkles. Late June into July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -33,9 +33,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-ataulfo-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-ataulfo-1.jpg"],
       "featured": true,
       "sortOrder": 20
     },
@@ -44,7 +42,8 @@
       "name": "Beverly Mango Tree",
       "category": "trees-scions",
       "variety": "Beverly",
-      "description": "Grafted Beverly mango tree grown on-site in a 3-gallon pot. Rich, sweet classic flavor with light melon notes and soft, fiber-free yellow flesh. Late season, July–September.",
+      "propagation": "grafted",
+      "description": "Beverly mango tree in a 3-gallon pot. Rich, sweet classic flavor with light melon notes and soft, fiber-free yellow flesh. Late season, July–September.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -52,9 +51,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-beverly-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-beverly-1.jpg"],
       "featured": false,
       "sortOrder": 30
     },
@@ -63,7 +60,8 @@
       "name": "Cac Mango Tree",
       "category": "trees-scions",
       "variety": "Cac",
-      "description": "Grafted Cac mango tree grown on-site in a 3-gallon pot. Vietnamese hybrid, exceptionally rich and sweet with cola-syrup notes and balancing acidity; heart-shaped, about a pound. Late June–July.",
+      "propagation": "grafted",
+      "description": "Cac mango tree in a 3-gallon pot. Vietnamese hybrid, exceptionally rich and sweet with cola-syrup notes and balancing acidity; heart-shaped, about a pound. Late June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -71,9 +69,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-cac-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-cac-1.jpg"],
       "featured": false,
       "sortOrder": 40
     },
@@ -82,7 +78,8 @@
       "name": "Carrie Mango Tree",
       "category": "trees-scions",
       "variety": "Carrie",
-      "description": "Grafted Carrie mango tree grown on-site in a 3-gallon pot. Small, fiberless mango with a bold, spicy Alphonso-like flavor — very soft, best eaten within 48 hours of ripening. May–July.",
+      "propagation": "grafted",
+      "description": "Carrie mango tree in a 3-gallon pot. Small, fiberless mango with a bold, spicy Alphonso-like flavor — very soft, best eaten within 48 hours of ripening. May–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -90,9 +87,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-carrie-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-carrie-1.jpg"],
       "featured": false,
       "sortOrder": 50
     },
@@ -101,7 +96,8 @@
       "name": "Duncan Mango Tree",
       "category": "trees-scions",
       "variety": "Duncan",
-      "description": "Grafted Duncan mango tree grown on-site in a 3-gallon pot. Highly productive, disease-resistant Florida cross (Edward x Philippine) with fiberless yellow flesh and Southeast Asian flavor. Late June–early August.",
+      "propagation": "grafted",
+      "description": "Duncan mango tree in a 3-gallon pot. Highly productive, disease-resistant Florida cross (Edward x Philippine) with fiberless yellow flesh and Southeast Asian flavor. Late June–early August.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -109,9 +105,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-duncan-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-duncan-1.jpg"],
       "featured": true,
       "sortOrder": 60
     },
@@ -120,7 +114,8 @@
       "name": "Edgar Mango Tree",
       "category": "trees-scions",
       "variety": "Edgar",
-      "description": "Grafted Edgar mango tree grown on-site in a 3-gallon pot. Classic subacid flavor, fiberless but firm flesh, light red-orange blush over yellow. Ripens July into early August.",
+      "propagation": "grafted",
+      "description": "Edgar mango tree in a 3-gallon pot. Classic subacid flavor, fiberless but firm flesh, light red-orange blush over yellow. Ripens July into early August.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -128,9 +123,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-edgar-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-edgar-1.jpg"],
       "featured": false,
       "sortOrder": 70
     },
@@ -139,7 +132,8 @@
       "name": "Excalibur Mango Tree",
       "category": "trees-scions",
       "variety": "Excalibur",
-      "description": "Grafted Excalibur mango tree grown on-site in a 3-gallon pot. Early-season classic-flavor mango with soft, fiberless yellow flesh.",
+      "propagation": "grafted",
+      "description": "Excalibur mango tree in a 3-gallon pot. Early-season classic-flavor mango with soft, fiberless yellow flesh.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -147,9 +141,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-excalibur-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-excalibur-1.jpg"],
       "featured": false,
       "sortOrder": 80
     },
@@ -158,7 +150,8 @@
       "name": "Fairchild Mango Tree",
       "category": "trees-scions",
       "variety": "Fairchild",
-      "description": "Grafted Fairchild mango tree grown on-site in a 3-gallon pot. Citrusy when just-ripe, sweeter Indochinese flavor once fully bronzed; fiberless, compact tree good for small yards. June–July.",
+      "propagation": "grafted",
+      "description": "Fairchild mango tree in a 3-gallon pot. Citrusy when just-ripe, sweeter Indochinese flavor once fully bronzed; fiberless, compact tree good for small yards. June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -166,9 +159,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-fairchild-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-fairchild-1.jpg"],
       "featured": false,
       "sortOrder": 90
     },
@@ -177,7 +168,8 @@
       "name": "Glenn Mango Tree",
       "category": "trees-scions",
       "variety": "Glenn",
-      "description": "Grafted Glenn mango tree grown on-site in a 3-gallon pot. Soft, fiberless yellow flesh with a mild, peachy classic flavor on a reliable, disease-resistant backyard tree. Early season, May–June.",
+      "propagation": "grafted",
+      "description": "Glenn mango tree in a 3-gallon pot. Soft, fiberless yellow flesh with a mild, peachy classic flavor on a reliable, disease-resistant backyard tree. Early season, May–June.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -185,9 +177,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-glenn-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-glenn-1.jpg"],
       "featured": false,
       "sortOrder": 100
     },
@@ -196,7 +186,8 @@
       "name": "Harvest Moon Mango Tree",
       "category": "trees-scions",
       "variety": "Harvest Moon",
-      "description": "Grafted Harvest Moon mango tree grown on-site in a 3-gallon pot. Huge (3+ lb), round, Kent-like fruit with classic flavor and notes of plum; light orange with red blush. July–August.",
+      "propagation": "grafted",
+      "description": "Harvest Moon mango tree in a 3-gallon pot. Huge (3+ lb), round, Kent-like fruit with classic flavor and notes of plum; light orange with red blush. July–August.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -204,9 +195,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-harvest-moon-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-harvest-moon-1.jpg"],
       "featured": false,
       "sortOrder": 110
     },
@@ -215,7 +204,8 @@
       "name": "Ice Cream Mango Tree",
       "category": "trees-scions",
       "variety": "Ice Cream",
-      "description": "Grafted Ice Cream mango tree grown on-site in a 3-gallon pot. Small, fiberless Trinidad heirloom (likely a Julie descendant) with a complex, perfumey spice-and-sweetness flavor — a true collector's mango. Mostly July.",
+      "propagation": "grafted",
+      "description": "Ice Cream mango tree in a 3-gallon pot. Small, fiberless Trinidad heirloom (likely a Julie descendant) with a complex, perfumey spice-and-sweetness flavor — a true collector's mango. Mostly July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -223,9 +213,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-ice-cream-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-ice-cream-1.jpg"],
       "featured": false,
       "sortOrder": 120
     },
@@ -234,7 +222,8 @@
       "name": "Jakarta Mango Tree",
       "category": "trees-scions",
       "variety": "Jakarta",
-      "description": "Grafted Jakarta mango tree grown on-site in a 3-gallon pot. Fiberless, dark yellow flesh; sweet and resinous with piney terpenes and spice — intensely aromatic. Late May–July.",
+      "propagation": "grafted",
+      "description": "Jakarta mango tree in a 3-gallon pot. Fiberless, dark yellow flesh; sweet and resinous with piney terpenes and spice — intensely aromatic. Late May–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -242,9 +231,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-jakarta-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-jakarta-1.jpg"],
       "featured": false,
       "sortOrder": 130
     },
@@ -253,7 +240,8 @@
       "name": "Julie Mango Tree",
       "category": "trees-scions",
       "variety": "Julie",
-      "description": "Grafted Julie mango tree grown on-site in a 3-gallon pot. Naturally dwarf West Indian tree (stays under 10 ft); soft, lightly fibered flesh with rich spice flavor, a dash of coconut, and plenty of sweetness. June–July, sometimes twice a year.",
+      "propagation": "grafted",
+      "description": "Julie mango tree in a 3-gallon pot. Naturally dwarf West Indian tree (stays under 10 ft); soft, lightly fibered flesh with rich spice flavor, a dash of coconut, and plenty of sweetness. June–July, sometimes twice a year.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -261,9 +249,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-julie-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-julie-1.jpg"],
       "featured": true,
       "sortOrder": 140
     },
@@ -272,7 +258,8 @@
       "name": "Keitt Mango Tree",
       "category": "trees-scions",
       "variety": "Keitt",
-      "description": "Grafted Keitt mango tree grown on-site in a 3-gallon pot. Large-to-very-large fruit (3+ lb) with sweet classic flavor, a little tang, and minimal fiber. Late season, July–September.",
+      "propagation": "grafted",
+      "description": "Keitt mango tree in a 3-gallon pot. Large-to-very-large fruit (3+ lb) with sweet classic flavor, a little tang, and minimal fiber. Late season, July–September.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -280,9 +267,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-keitt-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-keitt-1.jpg"],
       "featured": false,
       "sortOrder": 150
     },
@@ -291,7 +276,8 @@
       "name": "Kent Mango Tree",
       "category": "trees-scions",
       "variety": "Kent",
-      "description": "Grafted Kent mango tree grown on-site in a 3-gallon pot. Firm, fiberless flesh with medium-sweet peach notes on a heavy-producing tree. Late July–September. Exact count unconfirmed — call to verify availability.",
+      "propagation": "grafted",
+      "description": "Kent mango tree in a 3-gallon pot. Firm, fiberless flesh with medium-sweet peach notes on a heavy-producing tree. Late July–September. Exact count unconfirmed — call to verify availability.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -299,9 +285,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-kent-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-kent-1.jpg"],
       "featured": false,
       "sortOrder": 160
     },
@@ -310,7 +294,8 @@
       "name": "Lancetilla Mango Tree",
       "category": "trees-scions",
       "variety": "Lancetilla",
-      "description": "Grafted Lancetilla mango tree grown on-site in a 3-gallon pot. One of the largest mangoes in existence (up to 5 lb); firm, fiberless flesh with a light resin note. A collector's variety. July–August.",
+      "propagation": "grafted",
+      "description": "Lancetilla mango tree in a 3-gallon pot. One of the largest mangoes in existence (up to 5 lb); firm, fiberless flesh with a light resin note. A collector's variety. July–August.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -318,9 +303,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-lancetilla-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-lancetilla-1.jpg"],
       "featured": false,
       "sortOrder": 170
     },
@@ -329,7 +312,8 @@
       "name": "Lemon Zest Mango Tree",
       "category": "trees-scions",
       "variety": "Lemon Zest",
-      "description": "Grafted Lemon Zest mango tree grown on-site in a 3-gallon pot. Richly sweet with candied orange and tangelo citrus flavor, fiberless yellow flesh, larger than Lemon Meringue. July–August. Tag on this tree reads “lemon seed.”",
+      "propagation": "grafted",
+      "description": "Lemon Zest mango tree in a 3-gallon pot. Richly sweet with candied orange and tangelo citrus flavor, fiberless yellow flesh, larger than Lemon Meringue. July–August. Tag on this tree reads “lemon seed.”",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -337,9 +321,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-lemon-zest-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-lemon-zest-1.jpg"],
       "featured": false,
       "sortOrder": 180
     },
@@ -348,7 +330,8 @@
       "name": "Maha Chanok Mango Tree",
       "category": "trees-scions",
       "variety": "Maha Chanok",
-      "description": "Grafted Maha Chanok mango tree grown on-site in a 3-gallon pot. Thai variety with floral, sweet-tart flavor and fiberless flesh; oblong shape, yellow with pink blush. Late June–July.",
+      "propagation": "grafted",
+      "description": "Maha Chanok mango tree in a 3-gallon pot. Thai variety with floral, sweet-tart flavor and fiberless flesh; oblong shape, yellow with pink blush. Late June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -356,9 +339,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-maha-chanok-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-maha-chanok-1.jpg"],
       "featured": false,
       "sortOrder": 190
     },
@@ -367,7 +348,8 @@
       "name": "Mallika Mango Tree",
       "category": "trees-scions",
       "variety": "Mallika",
-      "description": "Grafted Mallika mango tree grown on-site in a 3-gallon pot. Indian Dasheri x Neelum hybrid with firm, fiberless flesh and pronounced citrus flavor when properly ripened. Late June–July.",
+      "propagation": "grafted",
+      "description": "Mallika mango tree in a 3-gallon pot. Indian Dasheri x Neelum hybrid with firm, fiberless flesh and pronounced citrus flavor when properly ripened. Late June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -375,9 +357,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-mallika-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-mallika-1.jpg"],
       "featured": false,
       "sortOrder": 200
     },
@@ -386,7 +366,8 @@
       "name": "Manilita Mango Tree",
       "category": "trees-scions",
       "variety": "Manilita",
-      "description": "Grafted Manilita mango tree grown on-site in a 3-gallon pot. A smaller, dwarf cousin of the Manila/Philippine mango popular in South Florida yards — thin-seeded, fiberless, and honey-sweet.",
+      "propagation": "grafted",
+      "description": "Manilita mango tree in a 3-gallon pot. A smaller, dwarf cousin of the Manila/Philippine mango popular in South Florida yards — thin-seeded, fiberless, and honey-sweet.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -394,9 +375,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-manilita-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-manilita-1.jpg"],
       "featured": false,
       "sortOrder": 210
     },
@@ -405,7 +384,8 @@
       "name": "Nam Doc Mai Mango Tree",
       "category": "trees-scions",
       "variety": "Nam Doc Mai",
-      "description": "Grafted Nam Doc Mai mango tree grown on-site in a 3-gallon pot. Classic Thai dessert mango — silky, completely fiberless pale-yellow flesh with a strong floral honey flavor and no tartness. June–July.",
+      "propagation": "grafted",
+      "description": "Nam Doc Mai mango tree in a 3-gallon pot. Classic Thai dessert mango — silky, completely fiberless pale-yellow flesh with a strong floral honey flavor and no tartness. June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -413,9 +393,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-nam-doc-mai-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-nam-doc-mai-1.jpg"],
       "featured": false,
       "sortOrder": 220
     },
@@ -424,7 +402,8 @@
       "name": "Peach Cobbler Mango Tree",
       "category": "trees-scions",
       "variety": "Peach Cobbler",
-      "description": "Grafted Peach Cobbler mango tree grown on-site in a 3-gallon pot. Soft, fiberless orange flesh with a rich, complex citrus flavor (not actually peach); stays green even when ripe. July–August.",
+      "propagation": "grafted",
+      "description": "Peach Cobbler mango tree in a 3-gallon pot. Soft, fiberless orange flesh with a rich, complex citrus flavor (not actually peach); stays green even when ripe. July–August.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -432,9 +411,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-peach-cobbler-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-peach-cobbler-1.jpg"],
       "featured": false,
       "sortOrder": 230
     },
@@ -443,7 +420,8 @@
       "name": "Manila Mango Tree",
       "category": "trees-scions",
       "variety": "Manila (Philippine / Carabao)",
-      "description": "Grafted Philippine (Carabao) mango tree grown on-site in a 3-gallon pot — also sold locally as “Manila.” Small, fiberless, tropical-sweet flavor and very disease-resistant. May–July. Exact count unconfirmed — call to verify availability.",
+      "propagation": "grafted",
+      "description": "Philippine (Carabao) mango tree in a 3-gallon pot — also sold locally as “Manila.” Small, fiberless, tropical-sweet flavor and very disease-resistant. May–July. Exact count unconfirmed — call to verify availability.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -451,9 +429,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-manila-philippine-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-manila-philippine-1.jpg"],
       "featured": false,
       "sortOrder": 240
     },
@@ -462,7 +438,8 @@
       "name": "Pickering Mango Tree",
       "category": "trees-scions",
       "variety": "Pickering",
-      "description": "Grafted Pickering mango tree grown on-site in a 3-gallon pot. Compact dwarf tree, early and prolific; firm low-fiber flesh, exceptionally sweet with hints of coconut at full ripeness. June–July.",
+      "propagation": "grafted",
+      "description": "Pickering mango tree in a 3-gallon pot. Compact dwarf tree, early and prolific; firm low-fiber flesh, exceptionally sweet with hints of coconut at full ripeness. June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -470,9 +447,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-pickering-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-pickering-1.jpg"],
       "featured": false,
       "sortOrder": 250
     },
@@ -481,7 +456,8 @@
       "name": "Pineapple Pleasure Mango Tree",
       "category": "trees-scions",
       "variety": "Pineapple Pleasure",
-      "description": "Grafted Pineapple Pleasure mango tree grown on-site in a 3-gallon pot. Gary Zill variety with tremendous pineapple notes, bright acidity, and very high sweetness; fiberless flesh. Mostly July.",
+      "propagation": "grafted",
+      "description": "Pineapple Pleasure mango tree in a 3-gallon pot. Gary Zill variety with tremendous pineapple notes, bright acidity, and very high sweetness; fiberless flesh. Mostly July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -489,9 +465,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-pineapple-pleasure-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-pineapple-pleasure-1.jpg"],
       "featured": false,
       "sortOrder": 260
     },
@@ -500,7 +474,8 @@
       "name": "Quid Nou Mango Tree",
       "category": "trees-scions",
       "variety": "Quid Nou",
-      "description": "Grafted Quid Nou mango tree grown on-site in a 3-gallon pot. Variety descriptor not yet available — ask us in store for tasting notes.",
+      "propagation": "grafted",
+      "description": "Quid Nou mango tree in a 3-gallon pot. Variety descriptor not yet available — ask us in store for tasting notes.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -508,9 +483,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-quid-nou-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-quid-nou-1.jpg"],
       "featured": false,
       "sortOrder": 270
     },
@@ -519,7 +492,8 @@
       "name": "Southern Blush Mango Tree",
       "category": "trees-scions",
       "variety": "Southern Blush",
-      "description": "Grafted Southern Blush mango tree grown on-site in a 3-gallon pot. Medium-to-large, round-oval fruit with light red blush; firm, low-fiber yellow flesh with classic flavor and light stone-fruit notes. Late June–July. Exact count unconfirmed — call to verify availability.",
+      "propagation": "grafted",
+      "description": "Southern Blush mango tree in a 3-gallon pot. Medium-to-large, round-oval fruit with light red blush; firm, low-fiber yellow flesh with classic flavor and light stone-fruit notes. Late June–July. Exact count unconfirmed — call to verify availability.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -527,9 +501,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-southern-blush-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-southern-blush-1.jpg"],
       "featured": false,
       "sortOrder": 280
     },
@@ -538,7 +510,8 @@
       "name": "Sugarloaf Mango Tree",
       "category": "trees-scions",
       "variety": "Sugarloaf",
-      "description": "Grafted Sugarloaf mango tree grown on-site in a 3-gallon pot. Homely on the outside, but ripens into soft, fiberless flesh with an intense coconut-dessert sweetness.",
+      "propagation": "grafted",
+      "description": "Sugarloaf mango tree in a 3-gallon pot. Homely on the outside, but ripens into soft, fiberless flesh with an intense coconut-dessert sweetness.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -546,9 +519,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-sugarloaf-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-sugarloaf-1.jpg"],
       "featured": false,
       "sortOrder": 290
     },
@@ -557,7 +528,8 @@
       "name": "Taralay Mango Tree",
       "category": "trees-scions",
       "variety": "Taralay",
-      "description": "Grafted Taralay mango tree grown on-site in a 3-gallon pot. A Julie-seedling from Gary Zill's breeding program; small-to-medium yellow fruit, fiberless with a mild Duncan-like flavor. Exact count unconfirmed — call to verify availability.",
+      "propagation": "grafted",
+      "description": "Taralay mango tree in a 3-gallon pot. A Julie-seedling from Gary Zill's breeding program; small-to-medium yellow fruit, fiberless with a mild Duncan-like flavor. Exact count unconfirmed — call to verify availability.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -565,9 +537,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-taralay-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-taralay-1.jpg"],
       "featured": false,
       "sortOrder": 300
     },
@@ -576,7 +546,8 @@
       "name": "Torbet Mango Tree",
       "category": "trees-scions",
       "variety": "Torbet",
-      "description": "Grafted Torbet mango tree grown on-site in a 3-gallon pot. Variety descriptor not yet available — ask us in store for tasting notes.",
+      "propagation": "grafted",
+      "description": "Torbet mango tree in a 3-gallon pot. Variety descriptor not yet available — ask us in store for tasting notes.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -584,9 +555,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-torbet-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-torbet-1.jpg"],
       "featured": false,
       "sortOrder": 310
     },
@@ -595,7 +564,8 @@
       "name": "Val-Carrie Mango Tree",
       "category": "trees-scions",
       "variety": "Val-Carrie",
-      "description": "Grafted Val-Carrie mango tree grown on-site in a 3-gallon pot. Likely a Valencia Pride x Carrie cross; soft, fiberless orange-yellow flesh with a strong, spicy-sweet aroma. June–July.",
+      "propagation": "grafted",
+      "description": "Val-Carrie mango tree in a 3-gallon pot. Likely a Valencia Pride x Carrie cross; soft, fiberless orange-yellow flesh with a strong, spicy-sweet aroma. June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -603,9 +573,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-val-carrie-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-val-carrie-1.jpg"],
       "featured": false,
       "sortOrder": 320
     },
@@ -614,7 +582,8 @@
       "name": "Wise Mango Tree",
       "category": "trees-scions",
       "variety": "Wise",
-      "description": "Grafted Wise mango tree grown on-site in a 3-gallon pot. Large, ugly-but-good round mango; very firm, low-fiber yellow flesh with classic flavor. July–August.",
+      "propagation": "grafted",
+      "description": "Wise mango tree in a 3-gallon pot. Large, ugly-but-good round mango; very firm, low-fiber yellow flesh with classic flavor. July–August.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -622,9 +591,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-wise-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-wise-1.jpg"],
       "featured": false,
       "sortOrder": 330
     },
@@ -633,7 +600,8 @@
       "name": "Hodson Mango Tree",
       "category": "trees-scions",
       "variety": "Hodson",
-      "description": "Grafted Hodson mango tree grown on-site in a 3-gallon pot. Small, brilliantly red fruit — one of the prettiest mangoes we grow — with fiberless, Irwin-like classic flavor. June–July.",
+      "propagation": "grafted",
+      "description": "Hodson mango tree in a 3-gallon pot. Small, brilliantly red fruit — one of the prettiest mangoes we grow — with fiberless, Irwin-like classic flavor. June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -641,9 +609,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-hodson-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-hodson-1.jpg"],
       "featured": false,
       "sortOrder": 340
     },
@@ -652,7 +618,8 @@
       "name": "Madame Francis Mango Tree",
       "category": "trees-scions",
       "variety": "Madame Francis",
-      "description": "Grafted Madame Francis mango tree grown on-site in a 3-gallon pot. Rich, sweet, strong Indochinese-group flavor with some spice notes; classic Haitian variety. June–July.",
+      "propagation": "grafted",
+      "description": "Madame Francis mango tree in a 3-gallon pot. Rich, sweet, strong Indochinese-group flavor with some spice notes; classic Haitian variety. June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -660,9 +627,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-madame-francis-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-madame-francis-1.jpg"],
       "featured": false,
       "sortOrder": 350
     },
@@ -671,7 +636,8 @@
       "name": "Zebda Mango Tree",
       "category": "trees-scions",
       "variety": "Zebda",
-      "description": "Grafted Zebda mango tree grown on-site in a 3-gallon pot. Widely grown Egyptian variety; very soft, melting, fiberless flesh with a floral, syrupy flavor. Late June–July. Sold out, awaiting more stock.",
+      "propagation": "grafted",
+      "description": "Zebda mango tree in a 3-gallon pot. Widely grown Egyptian variety; very soft, melting, fiberless flesh with a floral, syrupy flavor. Late June–July. Sold out, awaiting more stock.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -679,9 +645,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-zebda-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-zebda-1.jpg"],
       "featured": false,
       "sortOrder": 360
     },
@@ -690,7 +654,8 @@
       "name": "Super Alphonso Mango Tree",
       "category": "trees-scions",
       "variety": "Super Alphonso",
-      "description": "Grafted Super Alphonso mango tree — not currently potted. Classic-acidic flavor with a hint of Indian spice (does not taste like true Alphonso); a heavy, steady producer. Best ripened off the tree.",
+      "propagation": "grafted",
+      "description": "Super Alphonso mango tree — not currently potted. Classic-acidic flavor with a hint of Indian spice (does not taste like true Alphonso); a heavy, steady producer. Best ripened off the tree.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -698,9 +663,7 @@
       "lowStockThreshold": 3,
       "status": "coming-soon",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-super-alphonso-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-super-alphonso-1.jpg"],
       "featured": false,
       "sortOrder": 370
     },
@@ -709,7 +672,8 @@
       "name": "Juliette Mango Tree",
       "category": "trees-scions",
       "variety": "Juliette",
-      "description": "Grafted Juliette mango tree grown on-site in a 3-gallon pot. Small, fiberless, with a rich Indian-spice flavor closer to Carrie than to its parent, Julie. Mid-late season, July–August.",
+      "propagation": "grafted",
+      "description": "Juliette mango tree in a 3-gallon pot. Small, fiberless, with a rich Indian-spice flavor closer to Carrie than to its parent, Julie. Mid-late season, July–August.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -717,9 +681,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-juliette-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-juliette-1.jpg"],
       "featured": false,
       "sortOrder": 380
     },
@@ -728,7 +690,8 @@
       "name": "Valencia Pride Mango Tree",
       "category": "trees-scions",
       "variety": "Valencia Pride",
-      "description": "Grafted Valencia Pride mango tree grown on-site in a 3-gallon pot. Large oblong fruit, yellow with pink blush; firm, nearly fiberless flesh, medium-sweet with stone-fruit and honey notes. Late June–August.",
+      "propagation": "grafted",
+      "description": "Valencia Pride mango tree in a 3-gallon pot. Large oblong fruit, yellow with pink blush; firm, nearly fiberless flesh, medium-sweet with stone-fruit and honey notes. Late June–August.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -736,9 +699,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-valencia-pride-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-valencia-pride-1.jpg"],
       "featured": false,
       "sortOrder": 390
     },
@@ -747,7 +708,8 @@
       "name": "Haden Mango Tree",
       "category": "trees-scions",
       "variety": "Haden",
-      "description": "Grafted Haden mango tree grown on-site in a 3-gallon pot. Florida's original commercial mango — round, red-blushed fruit with sweet, peachy classic flavor and moderate fiber. May–July.",
+      "propagation": "grafted",
+      "description": "Haden mango tree in a 3-gallon pot. Florida's original commercial mango — round, red-blushed fruit with sweet, peachy classic flavor and moderate fiber. May–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -755,9 +717,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-haden-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-haden-1.jpg"],
       "featured": false,
       "sortOrder": 400
     },
@@ -766,7 +726,8 @@
       "name": "Okrung Mango Tree",
       "category": "trees-scions",
       "variety": "Okrung",
-      "description": "Grafted Okrung mango tree grown on-site in a 3-gallon pot. Thai variety with an extremely sweet, sugar-cane-like flavor and no acidity; stays mostly green at maturity. Late June–July.",
+      "propagation": "grafted",
+      "description": "Okrung mango tree in a 3-gallon pot. Thai variety with an extremely sweet, sugar-cane-like flavor and no acidity; stays mostly green at maturity. Late June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -774,9 +735,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-okrung-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-okrung-1.jpg"],
       "featured": false,
       "sortOrder": 410
     },
@@ -785,7 +744,8 @@
       "name": "Lemon Meringue Mango Tree",
       "category": "trees-scions",
       "variety": "Lemon Meringue",
-      "description": "Grafted Lemon Meringue mango tree grown on-site in a 3-gallon pot. Small yellow mango with a rich, sweet, citrus-dominant flavor and fiberless flesh. Early season, May–July.",
+      "propagation": "grafted",
+      "description": "Lemon Meringue mango tree in a 3-gallon pot. Small yellow mango with a rich, sweet, citrus-dominant flavor and fiberless flesh. Early season, May–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -793,9 +753,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-lemon-meringue-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-lemon-meringue-1.jpg"],
       "featured": false,
       "sortOrder": 420
     },
@@ -804,7 +762,8 @@
       "name": "Orange Sherbet Mango Tree",
       "category": "trees-scions",
       "variety": "Orange Sherbet",
-      "description": "Grafted Orange Sherbet mango tree grown on-site in a 3-gallon pot. Gary Zill variety (a Lemon Meringue seedling) with a rich, sweet orange-citrus-candy flavor and fiberless flesh.",
+      "propagation": "grafted",
+      "description": "Orange Sherbet mango tree in a 3-gallon pot. Gary Zill variety (a Lemon Meringue seedling) with a rich, sweet orange-citrus-candy flavor and fiberless flesh.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -812,9 +771,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-orange-sherbet-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-orange-sherbet-1.jpg"],
       "featured": false,
       "sortOrder": 430
     },
@@ -823,7 +780,8 @@
       "name": "Alampur Baneshan Mango Tree",
       "category": "trees-scions",
       "variety": "Alampur Baneshan",
-      "description": "Grafted Alampur Baneshan mango tree grown on-site in a 3-gallon pot. Also known as Imam Passand (the farm's own reference material notes they're the same mango introduced under two names) — fiberless, pale-yellow Indian flesh with a strong, spicy-resinous aromatic quality; skin often stays green even when ripe. Early-to-mid season, June–July.",
+      "propagation": "grafted",
+      "description": "Alampur Baneshan mango tree in a 3-gallon pot. Also known as Imam Passand (the farm's own reference material notes they're the same mango introduced under two names) — fiberless, pale-yellow Indian flesh with a strong, spicy-resinous aromatic quality; skin often stays green even when ripe. Early-to-mid season, June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -831,9 +789,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-alampur-baneshan-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-alampur-baneshan-1.jpg"],
       "featured": false,
       "sortOrder": 440
     },
@@ -842,7 +798,8 @@
       "name": "Imam Passand Mango Tree",
       "category": "trees-scions",
       "variety": "Imam Passand",
-      "description": "Grafted Imam Passand mango tree grown on-site in a 3-gallon pot. Also known as Alampur Baneshan (the farm's own reference material notes they're the same mango introduced under two names) — fiberless, pale-yellow Indian flesh with a strong, spicy-resinous aromatic quality; skin often stays green even when ripe. Early-to-mid season, June–July.",
+      "propagation": "grafted",
+      "description": "Imam Passand mango tree in a 3-gallon pot. Also known as Alampur Baneshan (the farm's own reference material notes they're the same mango introduced under two names) — fiberless, pale-yellow Indian flesh with a strong, spicy-resinous aromatic quality; skin often stays green even when ripe. Early-to-mid season, June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -850,9 +807,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-imam-passand-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-imam-passand-1.jpg"],
       "featured": false,
       "sortOrder": 450
     },
@@ -861,7 +816,8 @@
       "name": "Tebow Mango Tree",
       "category": "trees-scions",
       "variety": "Tebow",
-      "description": "Grafted Tebow mango tree grown on-site in a 3-gallon pot. Variety descriptor not yet available — ask us in store for tasting notes.",
+      "propagation": "grafted",
+      "description": "Tebow mango tree in a 3-gallon pot. Variety descriptor not yet available — ask us in store for tasting notes.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -869,9 +825,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-tebow-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-tebow-1.jpg"],
       "featured": false,
       "sortOrder": 460
     },
@@ -880,7 +834,8 @@
       "name": "Diamond Mango Tree",
       "category": "trees-scions",
       "variety": "Diamond (HW-14)",
-      "description": "Grafted Diamond (HW-14) mango tree grown on-site in a 3-gallon pot. A Gary Zill-bred Julie seedling (possibly Nam Doc Mai pollen parent) with an unusual, vegetal flavor that's polarizing but has a devoted following; oblong and yellow at maturity. Mid-season, late June into July.",
+      "propagation": "grafted",
+      "description": "Diamond (HW-14) mango tree in a 3-gallon pot. A Gary Zill-bred Julie seedling (possibly Nam Doc Mai pollen parent) with an unusual, vegetal flavor that's polarizing but has a devoted following; oblong and yellow at maturity. Mid-season, late June into July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -888,9 +843,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-diamond-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-diamond-1.jpg"],
       "featured": false,
       "sortOrder": 470
     },
@@ -899,7 +852,8 @@
       "name": "Buxton Spice Mango Tree",
       "category": "trees-scions",
       "variety": "Buxton Spice",
-      "description": "Grafted Buxton Spice mango tree grown on-site in a 3-gallon pot. Guyana's best-known mango — rich, good Indian/West Indian flavor in a small fruit; firm yellow flesh with minimal fiber.",
+      "propagation": "grafted",
+      "description": "Buxton Spice mango tree in a 3-gallon pot. Guyana's best-known mango — rich, good Indian/West Indian flavor in a small fruit; firm yellow flesh with minimal fiber.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -907,9 +861,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-buxton-spice-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-buxton-spice-1.jpg"],
       "featured": false,
       "sortOrder": 480
     },
@@ -918,7 +870,8 @@
       "name": "Ugly Betty Mango Tree",
       "category": "trees-scions",
       "variety": "Ugly Betty",
-      "description": "Grafted Ugly Betty mango tree grown on-site in a 3-gallon pot. A Gary Zill-bred Carrie seedling — spicy, resinous, richly sweet Indian-Alphonso flavor in soft, fiberless yellow flesh; distinctive bumpy, mottled-pink skin lives up to the name. Mostly July.",
+      "propagation": "grafted",
+      "description": "Ugly Betty mango tree in a 3-gallon pot. A Gary Zill-bred Carrie seedling — spicy, resinous, richly sweet Indian-Alphonso flavor in soft, fiberless yellow flesh; distinctive bumpy, mottled-pink skin lives up to the name. Mostly July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -926,9 +879,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-ugly-betty-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-ugly-betty-1.jpg"],
       "featured": false,
       "sortOrder": 490
     },
@@ -937,7 +888,8 @@
       "name": "Cogshall Mango Tree",
       "category": "trees-scions",
       "variety": "Cogshall",
-      "description": "Grafted Cogshall mango tree grown on-site in a 3-gallon pot. A Pine Island, FL selection (likely a Haden seedling) prized as an easy, disease-resistant dooryard tree; soft, fiberless, moderately sweet classic flavor with a red blush over yellow skin. Early season, May–June.",
+      "propagation": "grafted",
+      "description": "Cogshall mango tree in a 3-gallon pot. A Pine Island, FL selection (likely a Haden seedling) prized as an easy, disease-resistant dooryard tree; soft, fiberless, moderately sweet classic flavor with a red blush over yellow skin. Early season, May–June.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -945,9 +897,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-cogshall-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-cogshall-1.jpg"],
       "featured": false,
       "sortOrder": 500
     },
@@ -956,7 +906,8 @@
       "name": "Sunrise Mango Tree",
       "category": "trees-scions",
       "variety": "Sunrise",
-      "description": "Grafted Sunrise mango tree grown on-site in a 3-gallon pot. A Gary Zill-bred Jakarta seedling with a rich, resinous, spice-noted flavor in the same family as Bombay and Jakarta; firm, fiberless yellow flesh. Late June–July.",
+      "propagation": "grafted",
+      "description": "Sunrise mango tree in a 3-gallon pot. A Gary Zill-bred Jakarta seedling with a rich, resinous, spice-noted flavor in the same family as Bombay and Jakarta; firm, fiberless yellow flesh. Late June–July.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -964,9 +915,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-sunrise-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-sunrise-1.jpg"],
       "featured": false,
       "sortOrder": 510
     },
@@ -975,7 +924,8 @@
       "name": "Pim Sen Mun Mango Tree",
       "category": "trees-scions",
       "variety": "Pim Sen Mun",
-      "description": "Grafted Pim Sen Mun mango tree grown on-site in a 3-gallon pot. Thai variety with floral, honey-sweet flavor and minimal acidity; light yellow, medium-firm flesh with a little fiber — good ripe, or eaten green for a crisp, apple-like bite. Early season, May–June.",
+      "propagation": "grafted",
+      "description": "Pim Sen Mun mango tree in a 3-gallon pot. Thai variety with floral, honey-sweet flavor and minimal acidity; light yellow, medium-firm flesh with a little fiber — good ripe, or eaten green for a crisp, apple-like bite. Early season, May–June.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -983,9 +933,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-pim-sen-mun-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-pim-sen-mun-1.jpg"],
       "featured": false,
       "sortOrder": 520
     },
@@ -994,7 +942,8 @@
       "name": "East Indian Mango Tree",
       "category": "trees-scions",
       "variety": "East Indian",
-      "description": "Grafted East Indian mango tree grown on-site in a 3-gallon pot. Jamaican heirloom with a richly sweet, resinous, spice-and-terpene flavor — among the most complex-tasting mangoes around — though quite fibrous, so best used for juice. Green with a pink-orange blush. Early season, May–June.",
+      "propagation": "grafted",
+      "description": "East Indian mango tree in a 3-gallon pot. Jamaican heirloom with a richly sweet, resinous, spice-and-terpene flavor — among the most complex-tasting mangoes around — though quite fibrous, so best used for juice. Green with a pink-orange blush. Early season, May–June.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -1002,9 +951,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-east-indian-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-east-indian-1.jpg"],
       "featured": false,
       "sortOrder": 530
     },
@@ -1013,7 +960,8 @@
       "name": "Brahm Kai Meu Mango Tree",
       "category": "trees-scions",
       "variety": "Brahm Kai Meu",
-      "description": "Grafted Brahm Kai Meu mango tree grown on-site in a 3-gallon pot. Thai variety with floral, honey-sweet flavor and no tartness; fiber-free orange flesh in a small-to-medium oblong fruit that stays dull yellow at maturity. Early-to-mid season, June–July. Exact count unconfirmed — call to verify availability.",
+      "propagation": "grafted",
+      "description": "Brahm Kai Meu mango tree in a 3-gallon pot. Thai variety with floral, honey-sweet flavor and no tartness; fiber-free orange flesh in a small-to-medium oblong fruit that stays dull yellow at maturity. Early-to-mid season, June–July. Exact count unconfirmed — call to verify availability.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -1021,9 +969,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-brahm-kai-meu-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-brahm-kai-meu-1.jpg"],
       "featured": false,
       "sortOrder": 540
     },
@@ -1032,7 +978,8 @@
       "name": "Himsagar Mango Tree",
       "category": "trees-scions",
       "variety": "Himsagar",
-      "description": "Grafted Himsagar mango tree grown on-site in a 3-gallon pot. One of India's oldest and most celebrated mangoes, from West Bengal (also known as Khirsapati) — famed for sweet, fiberless, richly aromatic flesh.",
+      "propagation": "grafted",
+      "description": "Himsagar mango tree in a 3-gallon pot. One of India's oldest and most celebrated mangoes, from West Bengal (also known as Khirsapati) — famed for sweet, fiberless, richly aromatic flesh.",
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
@@ -1040,9 +987,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-himsagar-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-himsagar-1.jpg"],
       "featured": false,
       "sortOrder": 550
     },
@@ -1051,7 +996,8 @@
       "name": "Cac Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Cac",
-      "description": "Grafted Cac mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Rich, sweet Vietnamese hybrid with cola-syrup notes. Late June–July.",
+      "propagation": "grafted",
+      "description": "Cac mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Rich, sweet Vietnamese hybrid with cola-syrup notes. Late June–July.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1059,9 +1005,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-cac-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-cac-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 560
     },
@@ -1070,7 +1014,8 @@
       "name": "Manila Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Manila (Philippine / Carabao)",
-      "description": "Grafted Philippine (Carabao) mango tree grown on-site in a larger 7-gallon pot — also sold locally as “Manila.” Small, fiberless, tropical-sweet flavor. May–July.",
+      "propagation": "grafted",
+      "description": "Philippine (Carabao) mango tree in a larger 7-gallon pot — also sold locally as “Manila.” Small, fiberless, tropical-sweet flavor. May–July.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1078,9 +1023,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-manila-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-manila-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 570
     },
@@ -1089,7 +1032,8 @@
       "name": "Wise Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Wise",
-      "description": "Grafted Wise mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Large, ugly-but-good fruit; very firm, low-fiber yellow flesh. July–August.",
+      "propagation": "grafted",
+      "description": "Wise mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Large, ugly-but-good fruit; very firm, low-fiber yellow flesh. July–August.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1097,9 +1041,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-wise-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-wise-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 580
     },
@@ -1108,7 +1050,8 @@
       "name": "Excalibur Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Excalibur",
-      "description": "Grafted Excalibur mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Early-season classic-flavor mango with soft, fiberless yellow flesh.",
+      "propagation": "grafted",
+      "description": "Excalibur mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Early-season classic-flavor mango with soft, fiberless yellow flesh.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1116,9 +1059,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-excalibur-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-excalibur-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 590
     },
@@ -1127,7 +1068,8 @@
       "name": "Duncan Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Duncan",
-      "description": "Grafted Duncan mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Highly productive Florida cross (Edward x Philippine) with fiberless yellow flesh and Southeast Asian flavor. Late June–early August.",
+      "propagation": "grafted",
+      "description": "Duncan mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Highly productive Florida cross (Edward x Philippine) with fiberless yellow flesh and Southeast Asian flavor. Late June–early August.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1135,9 +1077,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-duncan-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-duncan-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 600
     },
@@ -1146,7 +1086,8 @@
       "name": "Glenn Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Glenn",
-      "description": "Grafted Glenn mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Soft, fiberless yellow flesh with a mild, peachy classic flavor. Early season, May–June.",
+      "propagation": "grafted",
+      "description": "Glenn mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Soft, fiberless yellow flesh with a mild, peachy classic flavor. Early season, May–June.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1154,9 +1095,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-glenn-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-glenn-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 610
     },
@@ -1165,7 +1104,8 @@
       "name": "Beverly Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Beverly",
-      "description": "Grafted Beverly mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Rich, sweet classic flavor with light melon notes and soft, fiber-free yellow flesh. Late season, July–September.",
+      "propagation": "grafted",
+      "description": "Beverly mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Rich, sweet classic flavor with light melon notes and soft, fiber-free yellow flesh. Late season, July–September.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1173,9 +1113,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-beverly-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-beverly-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 620
     },
@@ -1184,7 +1122,8 @@
       "name": "Valencia Pride Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Valencia Pride",
-      "description": "Grafted Valencia Pride mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Large oblong fruit, yellow with pink blush; firm, nearly fiberless flesh with stone-fruit and honey notes. Late June–August.",
+      "propagation": "grafted",
+      "description": "Valencia Pride mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Large oblong fruit, yellow with pink blush; firm, nearly fiberless flesh with stone-fruit and honey notes. Late June–August.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1192,9 +1131,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-valencia-pride-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-valencia-pride-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 630
     },
@@ -1203,7 +1140,8 @@
       "name": "Tebow Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Tebow",
-      "description": "Grafted Tebow mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Variety descriptor not yet available — ask us in store for tasting notes.",
+      "propagation": "grafted",
+      "description": "Tebow mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Variety descriptor not yet available — ask us in store for tasting notes.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1211,9 +1149,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-tebow-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-tebow-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 640
     },
@@ -1222,7 +1158,8 @@
       "name": "Hodson Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Hodson",
-      "description": "Grafted Hodson mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Small, brilliantly red fruit with fiberless, Irwin-like classic flavor. June–July.",
+      "propagation": "grafted",
+      "description": "Hodson mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Small, brilliantly red fruit with fiberless, Irwin-like classic flavor. June–July.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1230,9 +1167,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-hodson-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-hodson-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 650
     },
@@ -1241,7 +1176,8 @@
       "name": "Imam Passand Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Imam Passand",
-      "description": "Grafted Imam Passand mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Also known as Alampur Baneshan — fiberless, pale-yellow Indian flesh with a strong, spicy-resinous aromatic quality; skin often stays green even when ripe. Early-to-mid season, June–July.",
+      "propagation": "grafted",
+      "description": "Imam Passand mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Also known as Alampur Baneshan — fiberless, pale-yellow Indian flesh with a strong, spicy-resinous aromatic quality; skin often stays green even when ripe. Early-to-mid season, June–July.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1249,9 +1185,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-imam-passand-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-imam-passand-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 660
     },
@@ -1260,7 +1194,8 @@
       "name": "Ice Cream Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Ice Cream",
-      "description": "Grafted Ice Cream mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Small, fiberless Trinidad heirloom with a complex, perfumey spice-and-sweetness flavor. Mostly July.",
+      "propagation": "grafted",
+      "description": "Ice Cream mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Small, fiberless Trinidad heirloom with a complex, perfumey spice-and-sweetness flavor. Mostly July.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1268,9 +1203,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-ice-cream-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-ice-cream-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 670
     },
@@ -1279,7 +1212,8 @@
       "name": "Lancetilla Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Lancetilla",
-      "description": "Grafted Lancetilla mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. One of the largest mangoes in existence (up to 5 lb); firm, fiberless flesh with a light resin note. July–August.",
+      "propagation": "grafted",
+      "description": "Lancetilla mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. One of the largest mangoes in existence (up to 5 lb); firm, fiberless flesh with a light resin note. July–August.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1287,9 +1221,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-lancetilla-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-lancetilla-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 680
     },
@@ -1298,7 +1230,8 @@
       "name": "Ataulfo Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Ataulfo",
-      "description": "Grafted Ataulfo mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Mexico's famous small yellow “honey” mango — firm but fiberless flesh with a mild subacid taste. Late June into July.",
+      "propagation": "grafted",
+      "description": "Ataulfo mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Mexico's famous small yellow “honey” mango — firm but fiberless flesh with a mild subacid taste. Late June into July.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1306,9 +1239,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-ataulfo-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-ataulfo-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 690
     },
@@ -1317,7 +1248,8 @@
       "name": "Julie Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Julie",
-      "description": "Grafted Julie mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Soft, lightly fibered flesh with rich spice flavor, a dash of coconut, and plenty of sweetness. June–July.",
+      "propagation": "grafted",
+      "description": "Julie mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Soft, lightly fibered flesh with rich spice flavor, a dash of coconut, and plenty of sweetness. June–July.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1325,9 +1257,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-julie-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-julie-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 700
     },
@@ -1336,7 +1266,8 @@
       "name": "Peach Cobbler Mango Tree (7-Gallon)",
       "category": "trees-scions",
       "variety": "Peach Cobbler",
-      "description": "Grafted Peach Cobbler mango tree grown on-site in a larger 7-gallon pot — more established than our 3-gallon stock. Soft, fiberless orange flesh with a rich, complex citrus flavor (not actually peach); stays green even when ripe. July–August.",
+      "propagation": "grafted",
+      "description": "Peach Cobbler mango tree in a larger 7-gallon pot — more established than our 3-gallon stock. Soft, fiberless orange flesh with a rich, complex citrus flavor (not actually peach); stays green even when ripe. July–August.",
       "unit": "7-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1344,9 +1275,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/mango-tree-peach-cobbler-7gal-1.jpg"
-      ],
+      "photos": ["images/products/mango-tree-peach-cobbler-7gal-1.jpg"],
       "featured": false,
       "sortOrder": 710
     },
@@ -1355,7 +1284,8 @@
       "name": "Arbequina Black Olive Tree",
       "category": "trees-scions",
       "variety": "Arbequina",
-      "description": "Arbequina black olive tree grown on-site. A compact, cold-hardy Spanish cultivar prized for heavy fruiting and high-quality oil.",
+      "propagation": "grafted",
+      "description": "Arbequina black olive tree. A compact, cold-hardy Spanish cultivar prized for heavy fruiting and high-quality oil.",
       "unit": "each",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1363,9 +1293,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/olive-tree-arbequina-1.jpg"
-      ],
+      "photos": ["images/products/olive-tree-arbequina-1.jpg"],
       "featured": false,
       "sortOrder": 720
     },
@@ -1374,17 +1302,34 @@
       "name": "Red Lady Papaya Tree",
       "category": "trees-scions",
       "variety": "Red Lady",
-      "description": "Red Lady papaya tree grown on-site. A popular dwarf, self-pollinating cultivar with a high percentage of fruit-bearing plants and sweet, high-yielding fruit. Exact count unconfirmed — call to verify availability.",
-      "unit": "each",
+      "propagation": "seed",
+      "description": "Red Lady papaya tree. A popular dwarf, self-pollinating cultivar with a high percentage of fruit-bearing plants and sweet, high-yielding fruit. Exact count unconfirmed — call to verify availability.",
+      "unit": "3-gallon pot",
       "price": null,
       "priceNote": "Call for pricing",
-      "quantityOnHand": 1,
+      "quantityOnHand": 10,
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/papaya-tree-red-lady-1.jpg"
-      ],
+      "photos": ["images/products/papaya-tree-red-lady-1.jpg"],
+      "featured": false,
+      "sortOrder": 730
+    },
+    {
+      "id": "papaya-tree-red-lady",
+      "name": "Red Lady Papaya Tree",
+      "category": "trees-scions",
+      "variety": "Red Lady",
+      "propagation": "seed",
+      "description": "Red Lady papaya tree. A popular dwarf, self-pollinating cultivar with a high percentage of fruit-bearing plants and sweet, high-yielding fruit. Exact count unconfirmed — call to verify availability.",
+      "unit": "7-gallon pot",
+      "price": null,
+      "priceNote": "Call for pricing",
+      "quantityOnHand": 2,
+      "lowStockThreshold": 3,
+      "status": "active",
+      "seasonNote": null,
+      "photos": ["images/products/papaya-tree-red-lady-1.jpg"],
       "featured": false,
       "sortOrder": 730
     },
@@ -1393,7 +1338,8 @@
       "name": "Barbados Cherry Tree",
       "category": "trees-scions",
       "variety": "Barbados Cherry",
-      "description": "Barbados Cherry (acerola) tree grown on-site. A shrubby, everbearing tropical cherry loaded with vitamin C — tart-sweet fruit good fresh or for juice.",
+      "propagation": "grafted",
+      "description": "Barbados Cherry (acerola) tree. A shrubby, everbearing tropical cherry loaded with vitamin C — tart-sweet fruit good fresh or for juice.",
       "unit": "each",
       "price": null,
       "priceNote": "Call for pricing",
@@ -1401,9 +1347,7 @@
       "lowStockThreshold": 3,
       "status": "active",
       "seasonNote": null,
-      "photos": [
-        "images/products/cherry-tree-barbados-1.jpg"
-      ],
+      "photos": ["images/products/cherry-tree-barbados-1.jpg"],
       "featured": false,
       "sortOrder": 740
     }

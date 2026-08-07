@@ -30,6 +30,12 @@ function computeAvailability(item) {
   return { label: 'In Stock', cssClass: 'badge-in-stock' };
 }
 
+function propagationLabel(item) {
+  if (item.propagation === 'grafted') return 'Grafted';
+  if (item.propagation === 'seed') return 'From Seed';
+  return null;
+}
+
 function formatPrice(item) {
   if (item.price == null) return item.priceNote ? escapeHtml(item.priceNote) : 'Call for pricing';
   const price = `$${item.price.toFixed(2)} / ${escapeHtml(item.unit)}`;
@@ -42,6 +48,7 @@ function itemCardHtml(item, opts = {}) {
   const hasPhoto = !!(item.photos && item.photos[0]);
   const photo = hasPhoto ? item.photos[0] : PLACEHOLDER_IMG;
   const disabled = avail.label === 'Sold Out' || avail.label === 'Coming Soon';
+  const propagation = propagationLabel(item);
 
   const actionsHtml = showActions
     ? `<div class="card-actions">
@@ -62,6 +69,7 @@ function itemCardHtml(item, opts = {}) {
       <div class="card-body">
         <h3>${escapeHtml(item.name)}</h3>
         ${item.variety ? `<p class="card-variety">${escapeHtml(item.variety)}</p>` : ''}
+        ${propagation ? `<span class="tag tag-propagation">${propagation}</span>` : ''}
         <p class="card-desc">${escapeHtml(item.description)}</p>
         ${item.seasonNote ? `<p class="card-season">${escapeHtml(item.seasonNote)}</p>` : ''}
         <p class="card-price">${formatPrice(item)}</p>

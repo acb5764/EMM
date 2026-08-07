@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (updatedEl && data.updated) updatedEl.textContent = `Inventory last updated: ${data.updated}`;
   } catch (err) {
     console.error(err);
-    tbody.innerHTML = '<tr><td colspan="4" class="empty-state">Sorry, we could not load inventory right now.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="5" class="empty-state">Sorry, we could not load inventory right now.</td></tr>';
     return;
   }
 
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
 
     if (filtered.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="4" class="empty-state">No items match your filters.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="5" class="empty-state">No items match your filters.</td></tr>';
       return;
     }
 
@@ -57,13 +57,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     filtered.forEach((item) => {
       if (item.category !== lastCategory) {
         lastCategory = item.category;
-        rows.push(`<tr class="inventory-category-row"><td colspan="4">${escapeHtml(CATEGORY_LABELS[item.category] || item.category)}</td></tr>`);
+        rows.push(`<tr class="inventory-category-row"><td colspan="5">${escapeHtml(CATEGORY_LABELS[item.category] || item.category)}</td></tr>`);
       }
       const avail = computeAvailability(item);
+      const propagation = item.propagation === 'grafted' ? 'Grafted'
+        : item.propagation === 'seed' ? 'From Seed'
+        : item.propagation === 'unknown' ? 'Unknown' : '—';
       rows.push(`<tr>
         <td>${escapeHtml(item.name)}</td>
         <td class="qty-cell">${item.quantityOnHand}</td>
         <td>${escapeHtml(item.unit)}</td>
+        <td>${escapeHtml(propagation)}</td>
         <td><span class="badge badge-inline ${avail.cssClass}">${avail.label}</span></td>
       </tr>`);
     });
