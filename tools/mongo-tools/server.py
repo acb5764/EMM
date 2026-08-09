@@ -300,6 +300,70 @@ def get_transactions(
 
 
 @mcp.tool()
+def sales_summary(
+    since: Optional[str] = None,
+    until: Optional[str] = None,
+    item_id: Optional[str] = None,
+    category: Optional[str] = None,
+) -> list[dict]:
+    """Aggregate units sold per item from the transaction ledger — the tool
+    behind questions like "how many mallika did we sell last week" (pass
+    item_id plus a since/until range) or "what's our best-selling tree this
+    month" (pass category="trees-scions" plus a since/until range and look at
+    the first row, since results are sorted by units_sold descending).
+
+    since/until are ISO-8601 date or datetime strings (inclusive), compared
+    lexicographically against the stored transaction date, same convention as
+    get_transactions. Only change_type="sale" transactions are counted, so
+    restocks/adjustments/losses never inflate a "best seller" answer.
+
+    Each result row is one item: item_id, units_sold, sale_count, plus
+    name/variety/category joined in from the current inventory doc so the
+    caller doesn't need a second lookup to turn an id into a readable answer.
+    """
+    query: dict = {"change_type": "sale"}
+    if item_id:
+        query["item_id"] = item_id
+    if since or until:
+        date_filter = {}
+        if since:
+            date_filter["$gte"] = since
+        if until:
+            date_filter["$lte"] = until
+        query["date"] = date_filter
+
+    totals: dict[str, dict] = {}
+    for txn in transactions_collection().find(query):
+        iid = txn["item_id"]
+        entry = totals.setdefault(
+            iid, {"item_id": iid, "units_sold": 0, "sale_count": 0}
+        )
+        entry["units_sold"] += -txn["quantity_delta"]
+        entry["sale_count"] += 1
+
+    if not totals:
+        return []
+
+    items_by_id = {
+        d["id"]: d
+        for d in inventory_collection().find({"id": {"$in": list(totals.keys())}})
+    }
+
+    results = []
+    for iid, entry in totals.items():
+        item = items_by_id.get(iid)
+        if category and (not item or item.get("category") != category):
+            continue
+        entry["name"] = item.get("name") if item else None
+        entry["variety"] = item.get("variety") if item else None
+        entry["category"] = item.get("category") if item else None
+        results.append(entry)
+
+    results.sort(key=lambda r: r["units_sold"], reverse=True)
+    return results
+
+
+@mcp.tool()
 def export_inventory_json(path: str = "data/inventory.json") -> dict:
     """Export the current inventory collection to the public site's JSON file.
 

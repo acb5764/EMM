@@ -46,6 +46,11 @@ exposed to the site or ever committed to the repo.
   (recount corrections) or `loss` (spoilage/damage); same underlying
   atomic update+log as `sell`/`restock`.
 - `get_inventory` / `get_transactions` — read-side queries with basic filters.
+- `sales_summary` — aggregates `sale` transactions into units-sold-per-item
+  over a date range, joined with name/variety/category from `inventory`.
+  Answers "how many mallika did we sell last week" (`item_id` + `since`/
+  `until`) or "best-selling tree this month" (`category="trees-scions"` +
+  `since`/`until`, take the top row — results are sorted descending).
 - `export_inventory_json` — writes the current `inventory` collection out to
   `data/inventory.json`, kept around for local reference/debugging only.
   **Not part of the publish path anymore** — see below.
