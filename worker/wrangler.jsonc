@@ -1,0 +1,9 @@
+{
+  "name": "emm-inventory-api",
+  "main": "src/index.js",
+  "compatibility_date": "2025-04-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "MONGODB_DB": "emm"
+  }
+}

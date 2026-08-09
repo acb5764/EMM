@@ -1,3 +1,7 @@
+// TODO: replace with the deployed Worker URL from worker/README.md
+// (npx wrangler deploy prints it, e.g. https://emm-inventory-api.<subdomain>.workers.dev)
+const INVENTORY_API_URL = "https://emm-inventory-api.aaron-d6f.workers.dev";
+
 const CATEGORY_LABELS = {
   'trees-scions': 'Trees & Scions',
   'fresh-fruit': 'Fresh Fruit',
@@ -136,7 +140,7 @@ function initFilters() {
 
 async function loadCatalog() {
   try {
-    const res = await fetch('data/inventory.json');
+    const res = await fetch(INVENTORY_API_URL);
     const data = await res.json();
     ALL_ITEMS = data.items || [];
     const updatedEl = document.getElementById('inventory-updated');
@@ -153,7 +157,7 @@ async function loadFeatured() {
   const container = document.getElementById('featured-grid');
   if (!container) return;
   try {
-    const res = await fetch('data/inventory.json');
+    const res = await fetch(INVENTORY_API_URL);
     const data = await res.json();
     const items = (data.items || []).filter((i) => i.featured).slice(0, 4);
     container.innerHTML = items.length

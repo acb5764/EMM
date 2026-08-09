@@ -1,9 +1,12 @@
 # emm-mongo MCP server
 
 Private internal tooling — **not** part of the public static site. Gives the
-agent tools to manage inventory + a transaction ledger in MongoDB, decoupled
-from `data/inventory.json` (which stays the public, hand-edited snapshot the
-site actually fetches).
+agent tools to manage inventory + a transaction ledger in MongoDB.
+
+The public site fetches live inventory through a separate Cloudflare Worker
+(`worker/`) that queries the `inventory` collection directly — see
+`worker/README.md`. Nothing from this MCP server or its Mongo connection is
+exposed to the site or ever committed to the repo.
 
 ## Setup
 
@@ -44,15 +47,17 @@ site actually fetches).
   atomic update+log as `sell`/`restock`.
 - `get_inventory` / `get_transactions` — read-side queries with basic filters.
 - `export_inventory_json` — writes the current `inventory` collection out to
-  `data/inventory.json` in the exact shape the public site expects. Doesn't
-  commit or push — review the diff and commit it yourself.
+  `data/inventory.json`, kept around for local reference/debugging only.
+  **Not part of the publish path anymore** — see below.
 
-## Publishing a change to the public site
+## How a change reaches the public site
 
-1. Use the tools to add items / record transactions in Mongo as things
-   actually happen.
-2. When ready to publish, call `export_inventory_json`.
-3. Review the resulting diff in `data/inventory.json`, commit, push.
+Nothing to commit or push. Use the tools to add items / record transactions
+in Mongo as things actually happen (a sale, a restock, a new variety) and
+the public site reflects it on the next page load, via `worker/` — a
+Cloudflare Worker with its own read access to the `inventory` collection
+(see `worker/README.md`).
 
 The `transactions` collection (and Mongo's own history of it) never leaves
-your database — only current-state snapshots ever reach the public repo.
+your database — the Worker only ever queries `inventory`, and only returns a
+fixed set of public-safe fields from it.

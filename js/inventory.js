@@ -1,3 +1,6 @@
+// TODO: replace with the deployed Worker URL from worker/README.md
+const INVENTORY_API_URL = "https://emm-inventory-api.aaron-d6f.workers.dev";
+
 document.addEventListener('DOMContentLoaded', async () => {
   const tbody = document.getElementById('inventory-tbody');
   if (!tbody) return;
@@ -13,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   let invIssuesOnly = false;
 
   try {
-    const res = await fetch('data/inventory.json');
+    const res = await fetch(INVENTORY_API_URL);
     const data = await res.json();
     items = data.items || [];
     if (updatedEl && data.updated) updatedEl.textContent = `Inventory last updated: ${data.updated}`;
