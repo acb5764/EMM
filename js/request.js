@@ -2,9 +2,6 @@
 // and replace this with the real endpoint before launch.
 const REQUEST_FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID';
 
-// TODO: replace with the deployed Worker URL from worker/README.md
-const INVENTORY_API_URL = "https://emm-inventory-api.aaron-d6f.workers.dev";
-
 document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('request-items');
   const form = document.getElementById('request-form');

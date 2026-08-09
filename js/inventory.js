@@ -1,6 +1,3 @@
-// TODO: replace with the deployed Worker URL from worker/README.md
-const INVENTORY_API_URL = "https://emm-inventory-api.aaron-d6f.workers.dev";
-
 document.addEventListener('DOMContentLoaded', async () => {
   const tbody = document.getElementById('inventory-tbody');
   if (!tbody) return;
