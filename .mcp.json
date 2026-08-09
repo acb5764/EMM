@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "emm-mongo": {
+      "command": "uv",
+      "args": ["run", "tools/mongo-tools/server.py"]
+    }
+  }
+}

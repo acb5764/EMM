@@ -1,0 +1,5 @@
+.DS_Store
+.env
+tools/mongo-tools/.env
+__pycache__/
+*.pyc
