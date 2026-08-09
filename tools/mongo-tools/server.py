@@ -300,6 +300,92 @@ def get_transactions(
 
 
 @mcp.tool()
+def get_sales_summary(
+    since: Optional[str] = None,
+    until: Optional[str] = None,
+    change_type: str = "sale",
+    category: Optional[str] = None,
+    variety: Optional[str] = None,
+    item_id: Optional[str] = None,
+    limit: Optional[int] = None,
+) -> dict:
+    """Aggregate the transaction ledger for reporting questions like "how many
+    mallika did we sell last week" or "what's our best selling tree this
+    month" — take entry 0 of by_item, sorted highest quantity first.
+
+    Joins transactions against inventory so results can be filtered/grouped
+    by category or variety (transactions only store item_id).
+
+    since/until: ISO-8601 date or datetime strings (inclusive), compared
+    lexicographically against the stored transaction date, e.g. "2026-08-01"
+    for start-of-month or "2026-08-03" for a week-ago cutoff.
+    change_type: one of "initial", "restock", "sale", "adjustment", "loss"
+    (default "sale"). Quantities are summed by magnitude, so stick to a
+    single change_type per call rather than mixing signs.
+    category/variety: optional filters against the joined inventory item
+    (variety is a case-insensitive substring match, e.g. "mallika").
+    item_id: optional exact item id filter, bypassing the category/variety
+    join.
+    limit: if set, only return the top N items by quantity.
+
+    Returns {"since", "until", "change_type", "total_quantity",
+    "by_item": [{"item_id", "name", "variety", "category", "quantity"}, ...]}
+    sorted by quantity descending.
+    """
+    txn_query: dict = {"change_type": change_type}
+    if item_id:
+        txn_query["item_id"] = item_id
+    if since or until:
+        date_filter = {}
+        if since:
+            date_filter["$gte"] = since
+        if until:
+            date_filter["$lte"] = until
+        txn_query["date"] = date_filter
+
+    items_by_id = {d["id"]: strip_mongo_id(d) for d in inventory_collection().find()}
+
+    if not item_id and (category or variety):
+        allowed_ids = {
+            i["id"] for i in items_by_id.values()
+            if (not category or i.get("category") == category)
+            and (not variety or variety.lower() in (i.get("variety") or "").lower())
+        }
+        if not allowed_ids:
+            return {
+                "since": since, "until": until, "change_type": change_type,
+                "total_quantity": 0, "by_item": [],
+            }
+        txn_query["item_id"] = {"$in": sorted(allowed_ids)}
+
+    totals: dict = {}
+    for txn in transactions_collection().find(txn_query):
+        totals[txn["item_id"]] = totals.get(txn["item_id"], 0) + abs(txn["quantity_delta"])
+
+    by_item = []
+    for iid, qty in totals.items():
+        item = items_by_id.get(iid, {})
+        by_item.append({
+            "item_id": iid,
+            "name": item.get("name", iid),
+            "variety": item.get("variety"),
+            "category": item.get("category"),
+            "quantity": qty,
+        })
+    by_item.sort(key=lambda x: x["quantity"], reverse=True)
+    if limit:
+        by_item = by_item[:limit]
+
+    return {
+        "since": since,
+        "until": until,
+        "change_type": change_type,
+        "total_quantity": sum(totals.values()),
+        "by_item": by_item,
+    }
+
+
+@mcp.tool()
 def export_inventory_json(path: str = "data/inventory.json") -> dict:
     """Export the current inventory collection to the public site's JSON file.
 
