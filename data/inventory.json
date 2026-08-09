@@ -443,7 +443,7 @@
       "unit": "3-gallon pot",
       "price": 50.0,
       "priceNote": "Buy more & save: 2 for $90, 3 for $110, 4 for $140",
-      "quantityOnHand": 10,
+      "quantityOnHand": 9,
       "lowStockThreshold": 1,
       "status": "active",
       "seasonNote": null,
