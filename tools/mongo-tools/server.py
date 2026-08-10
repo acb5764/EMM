@@ -26,6 +26,7 @@ from db import (
     VALID_STATUS,
     inventory_collection,
     now_iso,
+    scion_sales_collection,
     strip_mongo_id,
     transactions_collection,
 )
@@ -236,6 +237,61 @@ def record_transaction(
     below 0.
     """
     return _apply_transaction(item_id, change_type, quantity_delta, note)
+
+
+@mcp.tool()
+def record_scion_sale(
+    quantity: int, variety: Optional[str] = None, note: Optional[str] = None
+) -> dict:
+    """Log a scion (cutting) sale to a dedicated scion_sales ledger.
+
+    Scions are cut to order from a rotating assortment of source trees, not
+    stocked, so they don't belong in the inventory/transactions system (which
+    requires an existing inventory item and tracks quantityOnHand). This is a
+    separate append-only collection just for scion sale records — it never
+    touches inventory and is never queried by the public Worker.
+
+    quantity is the positive number of scions sold. variety is optional
+    free text (e.g. "Nam Doc Mai") since specific varieties aren't tracked
+    as items yet.
+    """
+    if quantity <= 0:
+        raise ValueError("quantity must be positive (units sold)")
+    doc = {
+        "quantity": quantity,
+        "variety": variety,
+        "note": note,
+        "date": now_iso(),
+    }
+    result = scion_sales_collection().insert_one(doc)
+    doc["_id"] = str(result.inserted_id)
+    return doc
+
+
+@mcp.tool()
+def get_scion_sales(
+    since: Optional[str] = None, until: Optional[str] = None, limit: int = 100
+) -> dict:
+    """Query the scion_sales ledger. since/until are ISO-8601 date or
+    datetime strings, compared lexicographically against the stored date.
+
+    Returns {"total_quantity": <sum over matched records>, "sales": [...]}.
+    """
+    query: dict = {}
+    if since or until:
+        date_filter = {}
+        if since:
+            date_filter["$gte"] = since
+        if until:
+            date_filter["$lte"] = until
+        query["date"] = date_filter
+
+    cursor = scion_sales_collection().find(query).sort("date", -1).limit(limit)
+    sales = []
+    for doc in cursor:
+        doc["_id"] = str(doc["_id"])
+        sales.append(doc)
+    return {"total_quantity": sum(s["quantity"] for s in sales), "sales": sales}
 
 
 @mcp.tool()

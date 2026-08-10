@@ -32,6 +32,10 @@ def transactions_collection():
     return get_db()["transactions"]
 
 
+def scion_sales_collection():
+    return get_db()["scion_sales"]
+
+
 def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
 
