@@ -29,6 +29,11 @@ exposed to the site or ever committed to the repo.
 - `transactions` — append-only ledger: `item_id`, `change_type` (`initial` /
   `restock` / `sale` / `adjustment` / `loss`), `quantity_delta`,
   `quantity_after`, `note`, `date`.
+- `scion_sales` — append-only ledger for scion (cutting) sales: `quantity`,
+  `variety` (free text, optional), `note`, `date`. Separate from
+  `transactions` because scions are cut to order from a rotating assortment,
+  not stocked as inventory items — there's no `item_id` to hang a normal
+  transaction off of. Never queried by the public Worker.
 
 ## Tools
 
@@ -46,6 +51,10 @@ exposed to the site or ever committed to the repo.
   (recount corrections) or `loss` (spoilage/damage); same underlying
   atomic update+log as `sell`/`restock`.
 - `get_inventory` / `get_transactions` — read-side queries with basic filters.
+- `record_scion_sale` — log a scion sale (quantity, optional variety/note) to
+  the `scion_sales` ledger.
+- `get_scion_sales` — read-side query over `scion_sales`, returns matched
+  records plus their summed `total_quantity`.
 - `export_inventory_json` — writes the current `inventory` collection out to
   `data/inventory.json`, kept around for local reference/debugging only.
   **Not part of the publish path anymore** — see below.
