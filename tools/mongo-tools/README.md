@@ -51,6 +51,11 @@ exposed to the site or ever committed to the repo.
   (recount corrections) or `loss` (spoilage/damage); same underlying
   atomic update+log as `sell`/`restock`.
 - `get_inventory` / `get_transactions` — read-side queries with basic filters.
+- `get_sales_summary` — aggregates the transaction ledger for questions like
+  "how many mallika did we sell last week" or "what's our best selling tree
+  this month". Joins against `inventory` so it can filter by category/variety
+  (transactions only store `item_id`), sums quantity per item over a date
+  range, and returns them sorted highest first.
 - `record_scion_sale` — log a scion sale (quantity, optional variety/note) to
   the `scion_sales` ledger.
 - `get_scion_sales` — read-side query over `scion_sales`, returns matched
