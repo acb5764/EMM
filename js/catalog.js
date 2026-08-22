@@ -18,7 +18,32 @@ const PLACEHOLDER_IMG = 'data:image/svg+xml;utf8,' + encodeURIComponent(
 
 let ALL_ITEMS = [];
 let activeCategory = 'all';
+let activeSize = 'all';
 let searchTerm = '';
+
+function sizeSortKey(unit) {
+  const match = /^(\d+(?:\.\d+)?)/.exec(unit);
+  return match ? parseFloat(match[1]) : Infinity;
+}
+
+function populateSizeFilter() {
+  const select = document.getElementById('catalog-size-filter');
+  if (!select) return;
+
+  const sizes = Array.from(new Set(
+    ALL_ITEMS
+      .filter((item) => activeCategory === 'all' || item.category === activeCategory)
+      .map((item) => item.unit)
+      .filter(Boolean)
+  )).sort((a, b) => sizeSortKey(a) - sizeSortKey(b) || a.localeCompare(b));
+
+  const previousValue = activeSize;
+  select.innerHTML = '<option value="all">All Sizes</option>' +
+    sizes.map((size) => `<option value="${escapeHtml(size)}">${escapeHtml(size)}</option>`).join('');
+
+  activeSize = sizes.includes(previousValue) ? previousValue : 'all';
+  select.value = activeSize;
+}
 
 function escapeHtml(str) {
   return String(str).replace(/[&<>"']/g, (c) => ({
@@ -90,6 +115,7 @@ function render() {
 
   const filtered = ALL_ITEMS
     .filter((item) => activeCategory === 'all' || item.category === activeCategory)
+    .filter((item) => activeSize === 'all' || item.unit === activeSize)
     .filter((item) => !term || item.name.toLowerCase().includes(term) || item.description.toLowerCase().includes(term))
     .sort((a, b) => {
       if (!!b.featured !== !!a.featured) return b.featured ? 1 : -1;
@@ -125,9 +151,18 @@ function initFilters() {
       document.querySelectorAll('.category-filter').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
       activeCategory = btn.dataset.category;
+      populateSizeFilter();
       render();
     });
   });
+
+  const sizeFilter = document.getElementById('catalog-size-filter');
+  if (sizeFilter) {
+    sizeFilter.addEventListener('change', () => {
+      activeSize = sizeFilter.value;
+      render();
+    });
+  }
 
   const search = document.getElementById('catalog-search');
   if (search) {
@@ -145,6 +180,7 @@ async function loadCatalog() {
     ALL_ITEMS = data.items || [];
     const updatedEl = document.getElementById('inventory-updated');
     if (updatedEl && data.updated) updatedEl.textContent = `Inventory last updated: ${data.updated}`;
+    populateSizeFilter();
     render();
   } catch (err) {
     console.error(err);
