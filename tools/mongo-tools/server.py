@@ -121,6 +121,55 @@ def add_inventory_item(
 
 
 @mcp.tool()
+def update_price(
+    item_id: Optional[str] = None,
+    unit: Optional[str] = None,
+    category: Optional[str] = None,
+    price: Optional[float] = None,
+    priceNote: Optional[str] = None,
+    clear_price_note: bool = False,
+) -> dict:
+    """Update price and/or priceNote on one item (item_id) or in bulk across
+    every item matching unit and/or category (e.g. unit="7-gallon pot" to
+    reprice every 7-gallon pot at once).
+
+    Must supply item_id, or at least one of unit/category. price/priceNote
+    are only changed if you pass them — omit price to leave it untouched
+    while only editing priceNote, or vice versa. Pass clear_price_note=True
+    to null out priceNote (e.g. moving from "Call for pricing" to a flat
+    price with no bulk-discount note); priceNote is otherwise left alone
+    when omitted.
+    """
+    if price is None and priceNote is None and not clear_price_note:
+        raise ValueError("nothing to update: pass price, priceNote, or clear_price_note")
+
+    query: dict = {}
+    if item_id:
+        query["id"] = item_id
+    if unit:
+        query["unit"] = unit
+    if category:
+        query["category"] = category
+    if not query:
+        raise ValueError("must supply item_id, unit, and/or category to select items")
+
+    update: dict = {}
+    if price is not None:
+        update["price"] = price
+    if clear_price_note:
+        update["priceNote"] = None
+    elif priceNote is not None:
+        update["priceNote"] = priceNote
+
+    matched = list(inventory_collection().find(query, {"id": 1}))
+    if not matched:
+        raise ValueError(f"no inventory items matched {query}")
+
+    inventory_collection().update_many(query, {"$set": update})
+    return {"matched_count": len(matched), "item_ids": [m["id"] for m in matched], "set": update}
+
+
+@mcp.tool()
 def add_variety(
     id: str,
     name: str,
