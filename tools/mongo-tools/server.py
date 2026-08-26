@@ -6,7 +6,7 @@
 #     "python-dotenv>=1.0",
 # ]
 # ///
-"""MCP server exposing tools to manage the Em_R_Mangoes inventory + transaction
+"""MCP server exposing tools to manage the Earth Mother Mango inventory + transaction
 ledger in MongoDB. Run via `uv run tools/mongo-tools/server.py` (see .mcp.json).
 
 This is internal tooling for the site owner's private data (Mongo). It is
@@ -58,7 +58,8 @@ def _build_item_doc(
     if status not in VALID_STATUS:
         raise ValueError(f"status must be one of {sorted(VALID_STATUS)}")
     if propagation not in VALID_PROPAGATION:
-        raise ValueError(f"propagation must be one of {sorted(VALID_PROPAGATION)}")
+        raise ValueError(
+            f"propagation must be one of {sorted(VALID_PROPAGATION)}")
     if inventory_collection().find_one({"id": id}):
         raise ValueError(f"an inventory item with id '{id}' already exists")
 
@@ -141,7 +142,8 @@ def update_price(
     when omitted.
     """
     if price is None and priceNote is None and not clear_price_note:
-        raise ValueError("nothing to update: pass price, priceNote, or clear_price_note")
+        raise ValueError(
+            "nothing to update: pass price, priceNote, or clear_price_note")
 
     query: dict = {}
     if item_id:
@@ -151,7 +153,8 @@ def update_price(
     if category:
         query["category"] = category
     if not query:
-        raise ValueError("must supply item_id, unit, and/or category to select items")
+        raise ValueError(
+            "must supply item_id, unit, and/or category to select items")
 
     update: dict = {}
     if price is not None:
@@ -214,7 +217,8 @@ def _apply_transaction(
     item_id: str, change_type: str, quantity_delta: int, note: Optional[str]
 ) -> dict:
     if change_type not in VALID_CHANGE_TYPES:
-        raise ValueError(f"change_type must be one of {sorted(VALID_CHANGE_TYPES)}")
+        raise ValueError(
+            f"change_type must be one of {sorted(VALID_CHANGE_TYPES)}")
 
     item = inventory_collection().find_one({"id": item_id})
     if not item:
@@ -368,7 +372,8 @@ def get_inventory(
 
     items = [strip_mongo_id(d) for d in inventory_collection().find(query)]
     if low_stock_only:
-        items = [i for i in items if i["quantityOnHand"] <= i.get("lowStockThreshold", 1)]
+        items = [i for i in items if i["quantityOnHand"]
+                 <= i.get("lowStockThreshold", 1)]
     items.sort(key=lambda i: (i.get("category", ""), i.get("sortOrder", 0)))
     return items
 
@@ -448,7 +453,8 @@ def get_sales_summary(
             date_filter["$lte"] = until
         txn_query["date"] = date_filter
 
-    items_by_id = {d["id"]: strip_mongo_id(d) for d in inventory_collection().find()}
+    items_by_id = {d["id"]: strip_mongo_id(
+        d) for d in inventory_collection().find()}
 
     if not item_id and (category or variety):
         allowed_ids = {
@@ -465,7 +471,8 @@ def get_sales_summary(
 
     totals: dict = {}
     for txn in transactions_collection().find(txn_query):
-        totals[txn["item_id"]] = totals.get(txn["item_id"], 0) + abs(txn["quantity_delta"])
+        totals[txn["item_id"]] = totals.get(
+            txn["item_id"], 0) + abs(txn["quantity_delta"])
 
     by_item = []
     for iid, qty in totals.items():

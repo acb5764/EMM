@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     </table>`;
 
     totalEl.textContent = allPriced
-      ? `Estimated total: $${total.toFixed(2)} (final pricing confirmed by Em_R_Mangoes before fulfillment)`
-      : `Estimated total: $${total.toFixed(2)}+ (some items require a call for current pricing; final pricing confirmed by Em_R_Mangoes before fulfillment)`;
+      ? `Estimated total: $${total.toFixed(2)} (final pricing confirmed by Earth Mother Mango before fulfillment)`
+      : `Estimated total: $${total.toFixed(2)}+ (some items require a call for current pricing; final pricing confirmed by Earth Mother Mango before fulfillment)`;
 
     container.querySelectorAll('.qty-input').forEach((input) => {
       input.addEventListener('change', () => {

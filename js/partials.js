@@ -23,7 +23,7 @@ class SiteHeader extends HTMLElement {
       <div class="header-inner">
         <a href="index.html" class="brand">
           <img src="images/site/logo.jpg" alt="Earth Mother Mango" class="brand-logo">
-          <span>Em_R_Mangoes</span>
+          <span>Earth Mother Mango</span>
         </a>
         <div class="header-actions">
           <button type="button" class="theme-toggle" data-theme-toggle></button>
@@ -61,9 +61,9 @@ class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <div class="footer-inner">
-        <p><strong>Em_R_Mangoes</strong> — Grown here, prepared here, and enjoyed by all!</p>
+        <p><strong>Earth Mother Mango</strong> — Grown here, prepared here, and enjoyed by all!</p>
         <p>3555 Tadlock Avenue, Malabar, FL &middot; <a href="tel:13042791714">304-279-1714</a> &middot; <a href="mailto:Em.r.mangos@gmail.com">Em.r.mangos@gmail.com</a></p>
-        <p class="footer-note">By appointment only. &copy; <span data-year></span> Em_R_Mangoes.</p>
+        <p class="footer-note">By appointment only. &copy; <span data-year></span> Earth Mother Mango.</p>
       </div>`;
     this.querySelector('[data-year]').textContent = String(new Date().getFullYear());
   }
