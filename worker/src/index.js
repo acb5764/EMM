@@ -1,9 +1,15 @@
 import { MongoClient } from "mongodb";
 
-// The public site's origin (GitHub Pages). Local dev servers (any
+// The public site's origin(s). earthmothermango.com is the custom domain
+// GitHub Pages now serves from; the old acb5764.github.io default is kept
+// too since GitHub Pages still resolves it. Local dev servers (any
 // http://localhost:*) are also allowed so `python3 -m http.server` works
 // against this API without a separate mock.
-const PROD_ORIGIN = "https://acb5764.github.io";
+const PROD_ORIGINS = [
+  "https://earthmothermango.com",
+  "https://www.earthmothermango.com",
+  "https://acb5764.github.io",
+];
 
 // Only these fields ever leave this Worker. The `transactions` collection
 // (the sale/cost ledger) is never queried here at all — this is belt-and-
@@ -25,7 +31,7 @@ function toPublicItem(doc) {
 
 function isAllowedOrigin(origin) {
   if (!origin) return false;
-  if (origin === PROD_ORIGIN) return true;
+  if (PROD_ORIGINS.includes(origin)) return true;
   try {
     return new URL(origin).hostname === "localhost";
   } catch {
