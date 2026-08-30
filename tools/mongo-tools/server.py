@@ -14,6 +14,8 @@ separate from the public static site, which continues to read only from
 data/inventory.json — see export_inventory_json below for how the two connect.
 """
 
+import re
+import uuid
 from typing import Optional
 
 from mcp.server.fastmcp import FastMCP
@@ -278,18 +280,186 @@ def record_transaction(
     note: Optional[str] = None,
 ) -> dict:
     """Log a stock change and apply it to inventory.quantityOnHand in one step.
-    General-purpose escape hatch — prefer sell/restock for those cases. Use
-    this directly for "adjustment" (recount corrections, either direction) or
-    "loss" (spoilage/damage, always negative).
+    General-purpose escape hatch — prefer sell/restock/transfer_pot_size for
+    those cases. Use this directly for "adjustment" (recount corrections,
+    either direction) or "loss" (spoilage/damage, always negative).
 
     This is the only supported way to change quantityOnHand — it keeps the
     transactions ledger and the inventory snapshot from drifting apart.
 
-    change_type: one of "initial", "restock", "sale", "adjustment", "loss".
-    quantity_delta: signed integer. The resulting quantityOnHand must not go
-    below 0.
+    change_type: one of "initial", "restock", "sale", "adjustment", "loss",
+    "transfer". quantity_delta: signed integer. The resulting
+    quantityOnHand must not go below 0.
     """
     return _apply_transaction(item_id, change_type, quantity_delta, note)
+
+
+_POT_SIZE_RE = re.compile(r"(\d+)")
+_POT_SUFFIX_ID_RE = re.compile(r"-\d+gal$")
+_POT_SUFFIX_NAME_RE = re.compile(r"\s*\(\d+-Gallon\)$", re.IGNORECASE)
+
+# Standard per-tier pricing observed across the catalog today — used only as
+# a starting point when up-potting has to create a brand-new destination
+# listing. update_price can correct it afterward if a variety is priced
+# differently.
+_TIER_PRICE_DEFAULTS = {
+    "7-gallon pot": 80.0,
+    "15-gallon pot": 160.0,
+    "25-gallon pot": 260.0,
+}
+
+
+def _normalize_pot_unit(raw: str) -> str:
+    match = _POT_SIZE_RE.search(raw)
+    if not match:
+        raise ValueError(
+            f"couldn't find a pot size in '{raw}' — try e.g. '3-gallon' or '7-gallon pot'"
+        )
+    return f"{match.group(1)}-gallon pot"
+
+
+def _find_variety_items(variety: str) -> list[dict]:
+    needle = variety.strip().casefold()
+    if not needle:
+        raise ValueError("variety must not be blank")
+    matches = []
+    for doc in inventory_collection().find({"category": "trees-scions"}):
+        hay = (doc.get("variety") or "").casefold()
+        if hay and (needle in hay or hay in needle):
+            matches.append(doc)
+    return matches
+
+
+@mcp.tool()
+def transfer_pot_size(
+    variety: str,
+    from_unit: str,
+    to_unit: str,
+    quantity: int,
+    note: Optional[str] = None,
+    new_item_price: Optional[float] = None,
+) -> dict:
+    """Move trees from one pot size to another for the same variety —
+    "up-potting" — e.g. someone says "we up-potted 2 Cotton Candy" or "we
+    put 3 Carrie trees in 7-gallon pots". Decrements the source listing and
+    increments (or creates) the destination listing for the same variety,
+    logging one linked "transfer" transaction on each side, so the ledger
+    shows where the trees went instead of looking like an unexplained loss
+    plus an unexplained restock.
+
+    variety is matched case-insensitively as a substring against existing
+    trees-scions items (either direction), so "cotton candy" matches
+    "Cotton Candy". from_unit/to_unit accept loose pot-size text — "3-gallon",
+    "3 gal", and "3-gallon pot" all resolve the same way — as long as they
+    contain a number.
+
+    Fault tolerance: raises a clear error (rather than guessing) if variety
+    matches zero or more than one item at from_unit, or if from_unit doesn't
+    have enough quantityOnHand to cover quantity — a typo or an ambiguous
+    variety name never silently moves the wrong trees. If the destination pot
+    size doesn't have a listing yet for this variety, one is created
+    automatically, cloning name/description/propagation/status from the
+    source and following the existing "(7-Gallon)"-style id/name suffix
+    convention. Pass new_item_price to set its price explicitly; otherwise it
+    falls back to this catalog's standard price for that pot size where
+    known (7/15/25-gallon), or None ("Call for pricing") otherwise.
+    """
+    if quantity <= 0:
+        raise ValueError("quantity must be positive (units moved)")
+
+    from_norm = _normalize_pot_unit(from_unit)
+    to_norm = _normalize_pot_unit(to_unit)
+    if from_norm == to_norm:
+        raise ValueError(
+            f"from_unit and to_unit are both '{from_norm}' — nothing to transfer")
+
+    candidates = _find_variety_items(variety)
+    source_matches = [d for d in candidates if d["unit"] == from_norm]
+    if not source_matches:
+        available = sorted(
+            {f"{d.get('variety')} ({d['unit']})" for d in candidates})
+        if available:
+            raise ValueError(
+                f"no '{from_norm}' listing matches variety '{variety}'. "
+                f"Found this variety at: {', '.join(available)}"
+            )
+        raise ValueError(
+            f"no trees-scions item matches variety '{variety}'")
+    if len(source_matches) > 1:
+        ids = ", ".join(
+            f"{d['id']} ({d.get('variety')})" for d in source_matches)
+        raise ValueError(
+            f"variety '{variety}' at {from_norm} is ambiguous — matches: {ids}. "
+            "Use a more specific variety name."
+        )
+    source = source_matches[0]
+
+    if source["quantityOnHand"] < quantity:
+        raise ValueError(
+            f"only {source['quantityOnHand']} of '{source['name']}' on hand at "
+            f"{from_norm}, can't move {quantity}"
+        )
+
+    exact_variety = source.get("variety")
+    dest_matches = [
+        d for d in candidates
+        if d["unit"] == to_norm and d.get("variety") == exact_variety
+    ]
+    if len(dest_matches) > 1:
+        ids = ", ".join(d["id"] for d in dest_matches)
+        raise ValueError(
+            f"variety '{exact_variety}' at {to_norm} is ambiguous — matches: {ids}. "
+            "Resolve the duplicate listing before transferring."
+        )
+
+    transfer_id = uuid.uuid4().hex[:8]
+    move_note = note or f"up-potted from {from_norm} to {to_norm}"
+    linked_note = f"{move_note} (transfer {transfer_id})"
+
+    dest = dest_matches[0] if dest_matches else None
+    created_dest = False
+    if dest is None:
+        size_num = to_norm.split("-")[0]
+        base_id = _POT_SUFFIX_ID_RE.sub("", source["id"])
+        new_id = f"{base_id}-{size_num}gal"
+        base_name = _POT_SUFFIX_NAME_RE.sub("", source["name"])
+        new_name = f"{base_name} ({size_num}-Gallon)"
+        price = new_item_price if new_item_price is not None else _TIER_PRICE_DEFAULTS.get(
+            to_norm)
+
+        dest_doc = _build_item_doc(
+            id=new_id,
+            name=new_name,
+            category="trees-scions",
+            description=source.get("description", ""),
+            unit=to_norm,
+            price=price,
+            priceNote=None if price is not None else source.get(
+                "priceNote"),
+            quantityOnHand=0,
+            lowStockThreshold=source.get("lowStockThreshold", 1),
+            status=source.get("status", "active"),
+            variety=exact_variety,
+            propagation=source.get("propagation", "unknown"),
+            seasonNote=source.get("seasonNote"),
+            photos=None,
+            featured=False,
+            sortOrder=source.get("sortOrder", 100) + 1,
+        )
+        inventory_collection().insert_one(dest_doc)
+        dest = dest_doc
+        created_dest = True
+
+    from_result = _apply_transaction(
+        source["id"], "transfer", -quantity, linked_note)
+    to_result = _apply_transaction(dest["id"], "transfer", quantity, linked_note)
+
+    return {
+        "transfer_id": transfer_id,
+        "from": from_result,
+        "to": to_result,
+        "destination_created": created_dest,
+    }
 
 
 @mcp.tool()
@@ -429,8 +599,8 @@ def get_sales_summary(
     since/until: ISO-8601 date or datetime strings (inclusive), compared
     lexicographically against the stored transaction date, e.g. "2026-08-01"
     for start-of-month or "2026-08-03" for a week-ago cutoff.
-    change_type: one of "initial", "restock", "sale", "adjustment", "loss"
-    (default "sale"). Quantities are summed by magnitude, so stick to a
+    change_type: one of "initial", "restock", "sale", "adjustment", "loss",
+    "transfer" (default "sale"). Quantities are summed by magnitude, so stick to a
     single change_type per call rather than mixing signs.
     category/variety: optional filters against the joined inventory item
     (variety is a case-insensitive substring match, e.g. "mallika").

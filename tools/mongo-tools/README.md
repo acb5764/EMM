@@ -27,7 +27,7 @@ exposed to the site or ever committed to the repo.
   `lowStockThreshold`, `status`, `seasonNote`, `photos`, `featured`,
   `sortOrder`).
 - `transactions` — append-only ledger: `item_id`, `change_type` (`initial` /
-  `restock` / `sale` / `adjustment` / `loss`), `quantity_delta`,
+  `restock` / `sale` / `adjustment` / `loss` / `transfer`), `quantity_delta`,
   `quantity_after`, `note`, `date`.
 - `scion_sales` — append-only ledger for scion (cutting) sales: `quantity`,
   `variety` (free text, optional), `note`, `date`. Separate from
@@ -50,6 +50,15 @@ exposed to the site or ever committed to the repo.
 - `record_transaction` — general-purpose escape hatch for `adjustment`
   (recount corrections) or `loss` (spoilage/damage); same underlying
   atomic update+log as `sell`/`restock`.
+- `transfer_pot_size` — "up-potting": move N trees of a variety from one pot
+  size to another (e.g. "up-potted 2 Cotton Candy from 3-gallon to
+  7-gallon"). Decrements the source listing, increments the destination
+  listing (creating it automatically, following the existing
+  `mango-tree-{slug}-{size}gal` / `"... (7-Gallon)"` naming convention, if
+  it doesn't exist yet), and logs one linked `transfer` transaction on each
+  side. Matches variety by case-insensitive substring and pot size by any
+  text containing a number, and raises instead of guessing if the variety
+  match is ambiguous or the source doesn't have enough on hand.
 - `get_inventory` / `get_transactions` — read-side queries with basic filters.
 - `get_sales_summary` — aggregates the transaction ledger for questions like
   "how many mallika did we sell last week" or "what's our best selling tree
