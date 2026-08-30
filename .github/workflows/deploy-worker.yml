@@ -17,7 +17,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: cloudflare/wrangler-action@v3
+      - uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: worker
+          # Match worker/package.json's "wrangler": "^4.0.0" explicitly,
+          # rather than relying on the action's own default -- that
+          # default is what caused this: @v3 of the action bakes in
+          # wrangler 3.90.0, which doesn't understand wrangler.jsonc's
+          # `main` field the same way and failed with "Missing
+          # entry-point". Pinning here means a future default change in
+          # the action can't cause the same surprise again.
+          wranglerVersion: "4"
