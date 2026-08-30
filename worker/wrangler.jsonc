@@ -1,5 +1,6 @@
 {
   "name": "emm-inventory-api",
+  "account_id": "d6f181a2811f210e8e43bde0bff928c3",
   "main": "src/index.js",
   "compatibility_date": "2025-04-08",
   "compatibility_flags": ["nodejs_compat"],
