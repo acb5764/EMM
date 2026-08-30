@@ -43,7 +43,8 @@ def now_iso() -> str:
 VALID_CATEGORIES = {"trees-scions", "fresh-fruit", "vegetables-herbs", "cottage-foods"}
 VALID_PROPAGATION = {"grafted", "seed", "unknown"}
 VALID_STATUS = {"active", "seasonal", "coming-soon"}
-VALID_CHANGE_TYPES = {"initial", "restock", "sale", "adjustment", "loss"}
+VALID_CHANGE_TYPES = {"initial", "restock", "sale",
+                       "adjustment", "loss", "transfer"}
 
 
 def strip_mongo_id(doc: dict) -> dict:
