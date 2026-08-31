@@ -34,6 +34,12 @@ exposed to the site or ever committed to the repo.
   `transactions` because scions are cut to order from a rotating assortment,
   not stocked as inventory items — there's no `item_id` to hang a normal
   transaction off of. Never queried by the public Worker.
+- `variety_aliases` — small lookup table mapping an alternate name/nickname/
+  abbreviation (`alias`, `alias_key` lowercased for matching) to the exact
+  variety string stored on inventory items (`canonical`). Only needed for
+  names that share no text with the real variety (e.g. "NDM" for "Nam Doc
+  Mai") — parenthetical alt-names already on the item itself (e.g. "Diamond
+  (HW-14)") are handled by substring matching and don't need an entry here.
 
 ## Tools
 
@@ -56,15 +62,23 @@ exposed to the site or ever committed to the repo.
   listing (creating it automatically, following the existing
   `mango-tree-{slug}-{size}gal` / `"... (7-Gallon)"` naming convention, if
   it doesn't exist yet), and logs one linked `transfer` transaction on each
-  side. Matches variety by case-insensitive substring and pot size by any
-  text containing a number, and raises instead of guessing if the variety
-  match is ambiguous or the source doesn't have enough on hand.
+  side. Resolves variety through `variety_aliases` first, then matches by
+  case-insensitive substring, and matches pot size by any text containing a
+  number; raises instead of guessing if the variety match is ambiguous or
+  the source doesn't have enough on hand.
+- `add_variety_alias` / `list_variety_aliases` / `remove_variety_alias` —
+  manage the `variety_aliases` lookup table, so a nickname or abbreviation
+  (e.g. "NDM" for "Nam Doc Mai") gets recognized by `transfer_pot_size` and
+  `get_sales_summary` even though it shares no text with the real variety
+  name. `add_variety_alias` requires an exact (case-insensitive) match on an
+  existing variety and raises with suggestions instead of guessing.
 - `get_inventory` / `get_transactions` — read-side queries with basic filters.
 - `get_sales_summary` — aggregates the transaction ledger for questions like
   "how many mallika did we sell last week" or "what's our best selling tree
   this month". Joins against `inventory` so it can filter by category/variety
-  (transactions only store `item_id`), sums quantity per item over a date
-  range, and returns them sorted highest first.
+  (transactions only store `item_id`), resolving variety through
+  `variety_aliases` first, sums quantity per item over a date range, and
+  returns them sorted highest first.
 - `record_scion_sale` — log a scion sale (quantity, optional variety/note) to
   the `scion_sales` ledger.
 - `get_scion_sales` — read-side query over `scion_sales`, returns matched

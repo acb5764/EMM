@@ -31,6 +31,7 @@ from db import (
     scion_sales_collection,
     strip_mongo_id,
     transactions_collection,
+    variety_aliases_collection,
 )
 
 mcp = FastMCP("emm-mongo")
@@ -318,7 +319,31 @@ def _normalize_pot_unit(raw: str) -> str:
     return f"{match.group(1)}-gallon pot"
 
 
+def _resolve_variety(variety: str) -> str:
+    """Translate a registered alias/nickname/abbreviation (see
+    add_variety_alias) to its canonical variety string. Looks up an exact
+    case-insensitive match on the alias; returns the input unchanged if
+    nothing is registered for it, so callers can always feed the result
+    straight into substring matching."""
+    alias_key = variety.strip().casefold()
+    doc = variety_aliases_collection().find_one({"alias_key": alias_key})
+    return doc["canonical"] if doc else variety
+
+
+def _exact_variety_match(variety: str) -> Optional[str]:
+    """Case-insensitive *exact* match against existing variety strings
+    (unlike _find_variety_items's substring match) — used when registering
+    an alias, where we need one unambiguous canonical target."""
+    needle = variety.strip().casefold()
+    for doc in inventory_collection().find({"category": "trees-scions"}, {"variety": 1}):
+        v = doc.get("variety")
+        if v and v.casefold() == needle:
+            return v
+    return None
+
+
 def _find_variety_items(variety: str) -> list[dict]:
+    variety = _resolve_variety(variety)
     needle = variety.strip().casefold()
     if not needle:
         raise ValueError("variety must not be blank")
@@ -347,11 +372,16 @@ def transfer_pot_size(
     shows where the trees went instead of looking like an unexplained loss
     plus an unexplained restock.
 
-    variety is matched case-insensitively as a substring against existing
-    trees-scions items (either direction), so "cotton candy" matches
-    "Cotton Candy". from_unit/to_unit accept loose pot-size text — "3-gallon",
-    "3 gal", and "3-gallon pot" all resolve the same way — as long as they
-    contain a number.
+    variety is first checked against registered aliases (see
+    add_variety_alias) — e.g. if "NDM" has been registered as an alias for
+    "Nam Doc Mai", saying "up-pot 2 NDM" resolves correctly — then matched
+    case-insensitively as a substring against existing trees-scions items
+    (either direction), so "cotton candy" matches "Cotton Candy". This also
+    handles varieties whose stored name already carries a parenthetical
+    alt-name (e.g. variety "Diamond (HW-14)" matches either "Diamond" or
+    "HW-14" without needing a registered alias). from_unit/to_unit accept
+    loose pot-size text — "3-gallon", "3 gal", and "3-gallon pot" all resolve
+    the same way — as long as they contain a number.
 
     Fault tolerance: raises a clear error (rather than guessing) if variety
     matches zero or more than one item at from_unit, or if from_unit doesn't
@@ -460,6 +490,82 @@ def transfer_pot_size(
         "to": to_result,
         "destination_created": created_dest,
     }
+
+
+@mcp.tool()
+def add_variety_alias(alias: str, canonical_variety: str) -> dict:
+    """Register alias as an alternate name for canonical_variety, so tools
+    that take a variety (transfer_pot_size, get_sales_summary) recognize it
+    even when it shares no text with the real name — e.g.
+    add_variety_alias("NDM", "Nam Doc Mai") lets "up-pot 2 NDM" resolve
+    correctly. (Parenthetical alt-names already stored on the item itself,
+    like "Diamond (HW-14)", don't need this — those already match either
+    half via substring. This is for names that aren't substrings at all:
+    abbreviations, nicknames, alternate spellings.)
+
+    canonical_variety must be an *exact* case-insensitive match to an
+    existing trees-scions item's variety field — if it's ambiguous or not
+    found, this raises with the closest candidates rather than guessing.
+
+    Re-registering the same alias (case-insensitive) overwrites the previous
+    mapping, so fixing a mistake doesn't require a separate remove step.
+    """
+    alias_key = alias.strip().casefold()
+    if not alias_key:
+        raise ValueError("alias must not be blank")
+    canonical = canonical_variety.strip()
+    if not canonical:
+        raise ValueError("canonical_variety must not be blank")
+
+    canonical_exact = _exact_variety_match(canonical)
+    if canonical_exact is None:
+        candidates = _find_variety_items(canonical)
+        if candidates:
+            options = sorted(
+                {d.get("variety") for d in candidates if d.get("variety")})
+            raise ValueError(
+                f"'{canonical}' isn't an exact variety match. Did you mean: "
+                f"{', '.join(options)}?"
+            )
+        raise ValueError(f"no trees-scions variety matches '{canonical}'")
+
+    existing = variety_aliases_collection().find_one({"alias_key": alias_key})
+    variety_aliases_collection().update_one(
+        {"alias_key": alias_key},
+        {"$set": {"alias_key": alias_key, "alias": alias.strip(),
+                   "canonical": canonical_exact}},
+        upsert=True,
+    )
+    return {
+        "alias": alias.strip(),
+        "canonical": canonical_exact,
+        "replaced": existing["canonical"] if existing else None,
+    }
+
+
+@mcp.tool()
+def list_variety_aliases(canonical_variety: Optional[str] = None) -> list[dict]:
+    """List registered variety aliases. Optionally filter to aliases pointing
+    at one canonical_variety (case-insensitive exact match)."""
+    docs = [strip_mongo_id(d) for d in variety_aliases_collection().find()]
+    for d in docs:
+        d.pop("alias_key", None)
+    if canonical_variety:
+        needle = canonical_variety.strip().casefold()
+        docs = [d for d in docs if d["canonical"].casefold() == needle]
+    docs.sort(key=lambda d: d["alias"].casefold())
+    return docs
+
+
+@mcp.tool()
+def remove_variety_alias(alias: str) -> dict:
+    """Delete a registered variety alias (case-insensitive match on alias)."""
+    alias_key = alias.strip().casefold()
+    removed = variety_aliases_collection().find_one_and_delete(
+        {"alias_key": alias_key})
+    if not removed:
+        raise ValueError(f"no alias '{alias}' is registered")
+    return {"removed": strip_mongo_id(removed)}
 
 
 @mcp.tool()
@@ -603,7 +709,9 @@ def get_sales_summary(
     "transfer" (default "sale"). Quantities are summed by magnitude, so stick to a
     single change_type per call rather than mixing signs.
     category/variety: optional filters against the joined inventory item
-    (variety is a case-insensitive substring match, e.g. "mallika").
+    (variety is resolved through registered aliases — see
+    add_variety_alias — then matched as a case-insensitive substring,
+    e.g. "mallika" or a registered abbreviation like "NDM").
     item_id: optional exact item id filter, bypassing the category/variety
     join.
     limit: if set, only return the top N items by quantity.
@@ -627,10 +735,11 @@ def get_sales_summary(
         d) for d in inventory_collection().find()}
 
     if not item_id and (category or variety):
+        resolved_variety = _resolve_variety(variety) if variety else None
         allowed_ids = {
             i["id"] for i in items_by_id.values()
             if (not category or i.get("category") == category)
-            and (not variety or variety.lower() in (i.get("variety") or "").lower())
+            and (not resolved_variety or resolved_variety.lower() in (i.get("variety") or "").lower())
         }
         if not allowed_ids:
             return {
