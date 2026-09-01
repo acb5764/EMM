@@ -58,8 +58,12 @@ exposed to the site or ever committed to the repo.
   atomic update+log as `sell`/`restock`.
 - `transfer_pot_size` — "up-potting": move N trees of a variety from one pot
   size to another (e.g. "up-potted 2 Cotton Candy from 3-gallon to
-  7-gallon"). Decrements the source listing, increments the destination
-  listing (creating it automatically, following the existing
+  7-gallon"). `from_unit`/`to_unit` are optional — say just "up-potted 2
+  Cotton Candy" and it infers `from_unit` when the variety only has stock at
+  one pot size, and `to_unit` as the next standard size up (3 → 7 → 15 → 25
+  gallon); it raises instead of guessing if stock exists at more than one
+  size. Decrements the source listing, increments the destination listing
+  (creating it automatically, following the existing
   `mango-tree-{slug}-{size}gal` / `"... (7-Gallon)"` naming convention, if
   it doesn't exist yet), and logs one linked `transfer` transaction on each
   side. Resolves variety through `variety_aliases` first, then matches by

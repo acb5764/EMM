@@ -309,6 +309,10 @@ _TIER_PRICE_DEFAULTS = {
     "25-gallon pot": 260.0,
 }
 
+# Standard up-potting progression, smallest to largest — used to infer
+# to_unit when a caller says "up-potted X" without naming a destination size.
+_TIER_LADDER = ["3-gallon pot", "7-gallon pot", "15-gallon pot", "25-gallon pot"]
+
 
 def _normalize_pot_unit(raw: str) -> str:
     match = _POT_SIZE_RE.search(raw)
@@ -317,6 +321,19 @@ def _normalize_pot_unit(raw: str) -> str:
             f"couldn't find a pot size in '{raw}' — try e.g. '3-gallon' or '7-gallon pot'"
         )
     return f"{match.group(1)}-gallon pot"
+
+
+def _next_tier_up(unit: str) -> str:
+    if unit not in _TIER_LADDER:
+        raise ValueError(
+            f"don't know the standard next pot size up from '{unit}' — pass to_unit explicitly"
+        )
+    idx = _TIER_LADDER.index(unit)
+    if idx == len(_TIER_LADDER) - 1:
+        raise ValueError(
+            f"'{unit}' is already the largest standard pot size — pass to_unit explicitly"
+        )
+    return _TIER_LADDER[idx + 1]
 
 
 def _resolve_variety(variety: str) -> str:
@@ -358,19 +375,20 @@ def _find_variety_items(variety: str) -> list[dict]:
 @mcp.tool()
 def transfer_pot_size(
     variety: str,
-    from_unit: str,
-    to_unit: str,
     quantity: int,
+    from_unit: Optional[str] = None,
+    to_unit: Optional[str] = None,
     note: Optional[str] = None,
     new_item_price: Optional[float] = None,
 ) -> dict:
     """Move trees from one pot size to another for the same variety —
-    "up-potting" — e.g. someone says "we up-potted 2 Cotton Candy" or "we
-    put 3 Carrie trees in 7-gallon pots". Decrements the source listing and
-    increments (or creates) the destination listing for the same variety,
-    logging one linked "transfer" transaction on each side, so the ledger
-    shows where the trees went instead of looking like an unexplained loss
-    plus an unexplained restock.
+    "up-potting" — e.g. someone says "we up-potted 2 Cotton Candy" (no sizes
+    named at all) or "we put 3 Carrie trees in 7-gallon pots" (destination
+    named, source implied). Decrements the source listing and increments (or
+    creates) the destination listing for the same variety, logging one
+    linked "transfer" transaction on each side, so the ledger shows where
+    the trees went instead of looking like an unexplained loss plus an
+    unexplained restock.
 
     variety is first checked against registered aliases (see
     add_variety_alias) — e.g. if "NDM" has been registered as an alias for
@@ -382,6 +400,18 @@ def transfer_pot_size(
     "HW-14" without needing a registered alias). from_unit/to_unit accept
     loose pot-size text — "3-gallon", "3 gal", and "3-gallon pot" all resolve
     the same way — as long as they contain a number.
+
+    from_unit and to_unit are both optional, for the common case where a
+    person just says "we up-potted the Cotton Candy" without stating either
+    size:
+    - If from_unit is omitted, it's inferred only when the variety currently
+      has stock (quantityOnHand > 0) at exactly one pot size — that size is
+      used. If it has stock at more than one size, that's ambiguous and
+      raises rather than guessing which batch was up-potted.
+    - If to_unit is omitted, it defaults to the next size up the standard
+      ladder (3-gallon -> 7-gallon -> 15-gallon -> 25-gallon) from the
+      resolved from_unit. Raises if from_unit isn't on that ladder or is
+      already the largest standard size.
 
     Fault tolerance: raises a clear error (rather than guessing) if variety
     matches zero or more than one item at from_unit, or if from_unit doesn't
@@ -397,13 +427,29 @@ def transfer_pot_size(
     if quantity <= 0:
         raise ValueError("quantity must be positive (units moved)")
 
-    from_norm = _normalize_pot_unit(from_unit)
-    to_norm = _normalize_pot_unit(to_unit)
+    candidates = _find_variety_items(variety)
+    if not candidates:
+        raise ValueError(f"no trees-scions item matches variety '{variety}'")
+
+    if from_unit is None:
+        stocked_units = sorted(
+            {d["unit"] for d in candidates if d.get("quantityOnHand", 0) > 0})
+        if len(stocked_units) != 1:
+            all_units = sorted({d["unit"] for d in candidates})
+            raise ValueError(
+                f"variety '{variety}' has stock at {len(stocked_units)} pot size(s) "
+                f"({', '.join(stocked_units) or ', '.join(all_units)}) — pass from_unit "
+                "to say which one was up-potted."
+            )
+        from_norm = stocked_units[0]
+    else:
+        from_norm = _normalize_pot_unit(from_unit)
+
+    to_norm = _next_tier_up(from_norm) if to_unit is None else _normalize_pot_unit(to_unit)
     if from_norm == to_norm:
         raise ValueError(
             f"from_unit and to_unit are both '{from_norm}' — nothing to transfer")
 
-    candidates = _find_variety_items(variety)
     source_matches = [d for d in candidates if d["unit"] == from_norm]
     if not source_matches:
         available = sorted(
