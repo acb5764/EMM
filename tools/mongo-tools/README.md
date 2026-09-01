@@ -68,11 +68,15 @@ exposed to the site or ever committed to the repo.
   the source doesn't have enough on hand.
 - `add_variety_alias` / `list_variety_aliases` / `remove_variety_alias` —
   manage the `variety_aliases` lookup table, so a nickname or abbreviation
-  (e.g. "NDM" for "Nam Doc Mai") gets recognized by `transfer_pot_size` and
-  `get_sales_summary` even though it shares no text with the real variety
-  name. `add_variety_alias` requires an exact (case-insensitive) match on an
-  existing variety and raises with suggestions instead of guessing.
-- `get_inventory` / `get_transactions` — read-side queries with basic filters.
+  (e.g. "NDM" for "Nam Doc Mai") gets recognized by `transfer_pot_size`,
+  `get_sales_summary`, `get_inventory`'s `search`, and `record_scion_sale` /
+  `get_scion_sales`'s `variety` even though it shares no text with the real
+  variety name. `add_variety_alias` requires an exact (case-insensitive)
+  match on an existing variety and raises with suggestions instead of
+  guessing.
+- `get_inventory` / `get_transactions` — read-side queries with basic
+  filters. `get_inventory`'s `search` resolves through `variety_aliases`
+  first, same as the other variety-aware tools.
 - `get_sales_summary` — aggregates the transaction ledger for questions like
   "how many mallika did we sell last week" or "what's our best selling tree
   this month". Joins against `inventory` so it can filter by category/variety
@@ -80,8 +84,10 @@ exposed to the site or ever committed to the repo.
   `variety_aliases` first, sums quantity per item over a date range, and
   returns them sorted highest first.
 - `record_scion_sale` — log a scion sale (quantity, optional variety/note) to
-  the `scion_sales` ledger.
-- `get_scion_sales` — read-side query over `scion_sales`, returns matched
+  the `scion_sales` ledger; variety is resolved through `variety_aliases`
+  first so nicknames are stored under their canonical name.
+- `get_scion_sales` — read-side query over `scion_sales`, optionally filtered
+  by variety (also resolved through `variety_aliases`), returns matched
   records plus their summed `total_quantity`.
 - `export_inventory_json` — writes the current `inventory` collection out to
   `data/inventory.json`, kept around for local reference/debugging only.
