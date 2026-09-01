@@ -20,7 +20,11 @@ _client = None
 def get_db():
     global _client
     if _client is None:
-        _client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=5000)
+        # 20s, not the pymongo default of 5s: the poller that runs this tool
+        # restarts right after the Mac wakes from sleep, and the very first
+        # mongodb+srv:// SRV lookup can land before Wi-Fi/DNS has finished
+        # coming back up, otherwise timing out on a perfectly healthy DB.
+        _client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=20000)
     return _client[MONGODB_DB]
 
 
