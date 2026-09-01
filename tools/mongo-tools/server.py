@@ -582,13 +582,15 @@ def record_scion_sale(
 
     quantity is the positive number of scions sold. variety is optional
     free text (e.g. "Nam Doc Mai") since specific varieties aren't tracked
-    as items yet.
+    as items yet — it's still resolved through registered aliases first
+    (see add_variety_alias), so logging a nickname like "NDM" stores the
+    canonical variety name and rolls up consistently in reports.
     """
     if quantity <= 0:
         raise ValueError("quantity must be positive (units sold)")
     doc = {
         "quantity": quantity,
-        "variety": variety,
+        "variety": _resolve_variety(variety) if variety else None,
         "note": note,
         "date": now_iso(),
     }
@@ -599,10 +601,16 @@ def record_scion_sale(
 
 @mcp.tool()
 def get_scion_sales(
-    since: Optional[str] = None, until: Optional[str] = None, limit: int = 100
+    since: Optional[str] = None,
+    until: Optional[str] = None,
+    variety: Optional[str] = None,
+    limit: int = 100,
 ) -> dict:
     """Query the scion_sales ledger. since/until are ISO-8601 date or
     datetime strings, compared lexicographically against the stored date.
+    variety is optional and resolved through registered aliases first (see
+    add_variety_alias), then matched as a case-insensitive substring against
+    the stored variety text.
 
     Returns {"total_quantity": <sum over matched records>, "sales": [...]}.
     """
@@ -614,6 +622,9 @@ def get_scion_sales(
         if until:
             date_filter["$lte"] = until
         query["date"] = date_filter
+    if variety:
+        resolved_variety = _resolve_variety(variety)
+        query["variety"] = {"$regex": re.escape(resolved_variety), "$options": "i"}
 
     cursor = scion_sales_collection().find(query).sort("date", -1).limit(limit)
     sales = []
@@ -633,7 +644,10 @@ def get_inventory(
     """Query current inventory. All filters are optional and AND together.
 
     low_stock_only returns items where quantityOnHand <= lowStockThreshold.
-    search does a case-insensitive substring match against name/variety.
+    search does a case-insensitive substring match against name/variety —
+    it's also resolved through registered aliases first (see
+    add_variety_alias), so a nickname/abbreviation like "NDM" matches items
+    whose variety is "Nam Doc Mai" even though the two share no text.
     """
     query: dict = {}
     if category:
@@ -641,9 +655,12 @@ def get_inventory(
     if status:
         query["status"] = status
     if search:
+        resolved_search = _resolve_variety(search)
+        terms = {search, resolved_search}
         query["$or"] = [
-            {"name": {"$regex": search, "$options": "i"}},
-            {"variety": {"$regex": search, "$options": "i"}},
+            {field: {"$regex": re.escape(term), "$options": "i"}}
+            for term in terms
+            for field in ("name", "variety")
         ]
 
     items = [strip_mongo_id(d) for d in inventory_collection().find(query)]
