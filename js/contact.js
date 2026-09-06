@@ -1,4 +1,3 @@
-// TODO: create a second Formspree form for general inquiries and replace this endpoint.
 const CONTACT_FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeaqzpyp';
 
 document.addEventListener('DOMContentLoaded', () => {
