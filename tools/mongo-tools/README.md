@@ -48,6 +48,12 @@ exposed to the site or ever committed to the repo.
 - `add_variety` — insert a trees-scions item. Per CLAUDE.md, the description
   should be enriched from the Tropical Acres Farms varietal PDF before
   calling this — the tool's own docstring repeats that instruction.
+- `update_inventory_item` — edit fields (name, variety, category, description,
+  unit, propagation, status, seasonNote, featured, sortOrder) on an existing
+  item in place — e.g. fixing a typo'd variety name — without creating a new
+  listing or leaving a sold-out "ghost" behind. Does not touch
+  `quantityOnHand` (use `sell`/`restock`/`record_transaction`) or
+  `price`/`priceNote` (use `update_price`).
 - `sell` — record a sale: decrements `quantityOnHand` and logs a `sale`
   transaction in one step. The everyday tool for a farm-stand sale.
 - `restock` — record a restock: increments `quantityOnHand` and logs a

@@ -216,6 +216,78 @@ def add_variety(
     return strip_mongo_id(doc)
 
 
+@mcp.tool()
+def update_inventory_item(
+    item_id: str,
+    name: Optional[str] = None,
+    variety: Optional[str] = None,
+    category: Optional[str] = None,
+    description: Optional[str] = None,
+    unit: Optional[str] = None,
+    propagation: Optional[str] = None,
+    status: Optional[str] = None,
+    seasonNote: Optional[str] = None,
+    clear_season_note: bool = False,
+    featured: Optional[bool] = None,
+    sortOrder: Optional[int] = None,
+) -> dict:
+    """Edit fields on an existing inventory item in place — e.g. fixing a
+    typo'd name/variety (like "Sithong" -> "Sia Tong"), or correcting
+    category/unit/propagation/status/seasonNote/featured/sortOrder — without
+    creating a new listing and without leaving a ghost behind.
+
+    Only pass the fields you want to change; everything else is left alone.
+    Does not touch quantityOnHand (use sell/restock/record_transaction) or
+    price/priceNote (use update_price) — those go through the transaction
+    ledger / dedicated tool on purpose.
+
+    Pass clear_season_note=True to null out seasonNote; seasonNote is
+    otherwise left alone when omitted.
+    """
+    item = inventory_collection().find_one({"id": item_id})
+    if not item:
+        raise ValueError(f"no inventory item with id '{item_id}'")
+
+    if category is not None and category not in VALID_CATEGORIES:
+        raise ValueError(f"category must be one of {sorted(VALID_CATEGORIES)}")
+    if status is not None and status not in VALID_STATUS:
+        raise ValueError(f"status must be one of {sorted(VALID_STATUS)}")
+    if propagation is not None and propagation not in VALID_PROPAGATION:
+        raise ValueError(
+            f"propagation must be one of {sorted(VALID_PROPAGATION)}")
+
+    update: dict = {}
+    if name is not None:
+        update["name"] = name
+    if variety is not None:
+        update["variety"] = variety
+    if category is not None:
+        update["category"] = category
+    if description is not None:
+        update["description"] = description
+    if unit is not None:
+        update["unit"] = unit
+    if propagation is not None:
+        update["propagation"] = propagation
+    if status is not None:
+        update["status"] = status
+    if clear_season_note:
+        update["seasonNote"] = None
+    elif seasonNote is not None:
+        update["seasonNote"] = seasonNote
+    if featured is not None:
+        update["featured"] = featured
+    if sortOrder is not None:
+        update["sortOrder"] = sortOrder
+
+    if not update:
+        raise ValueError("nothing to update: pass at least one field to change")
+
+    inventory_collection().update_one({"id": item_id}, {"$set": update})
+    updated = inventory_collection().find_one({"id": item_id})
+    return strip_mongo_id(updated)
+
+
 def _apply_transaction(
     item_id: str, change_type: str, quantity_delta: int, note: Optional[str]
 ) -> dict:
