@@ -42,3 +42,5 @@ Search for `TODO` — currently: two placeholder Formspree endpoints (`js/reques
 ## Rules
 
 Any addition of new varieties should use https://www.tropicalacresfarms.com/_files/ugd/9c9af8_4272686ce3364d649e876b6576ce8d1e.pdf to enrich the description before adding to the inventory
+
+**Don't narrate that "no website files needed changing" or that a request "went straight to the database."** Inventory management (sales, restocks, price updates, new varieties, corrections) is the primary job here, and a pure inventory request having no website-file diff is the normal case, not a noteworthy exception -- just make the change and report the result. Only mention the website/database distinction when it's actually relevant to what was asked (e.g. the person is asking how the site works, or a website file genuinely does need changing alongside the inventory update).
