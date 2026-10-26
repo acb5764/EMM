@@ -27,7 +27,7 @@ Click through nav links, category filters, cart add/remove, and form submissions
 
 **Cart is `localStorage`-only, no backend.** `js/cart.js` stores `{itemId: quantity}` under key `emrCart`. `request.html`/`js/request.js` re-fetches `data/inventory.json` fresh on load and cross-checks cart contents against it, silently dropping/flagging anything that's gone Sold Out or been removed since it was added — the cart never trusts stale client state for price/availability.
 
-**Forms submit to Formspree, not a server.** `js/request.js` and `js/contact.js` each POST to a Formspree endpoint via `fetch`, with a `mailto:` fallback shown on failure. Both currently hold placeholder endpoints (`REPLACE_WITH_YOUR_FORM_ID` / `REPLACE_WITH_YOUR_CONTACT_FORM_ID`) that need real Formspree form IDs before launch.
+**Forms submit to Formspree, not a server.** `js/request.js` and `js/contact.js` each POST to a Formspree endpoint via `fetch`, with a `mailto:` fallback shown on failure. Each has its own dedicated Formspree form ID (order requests and general contact inquiries send to separate endpoints).
 
 **Theming is dark-by-default with a manual light override**, driven by a `data-theme` attribute on `<html>` and CSS custom properties in `css/style.css` (`:root` = dark, `:root[data-theme="light"]` = overrides). Because there's no shared `<head>`, every page duplicates a small inline script that reads `localStorage['emrTheme']` and sets `data-theme` _before_ the stylesheet loads, to avoid a flash of the wrong theme. If you add a new page, copy this snippet from an existing one.
 
@@ -37,7 +37,7 @@ Click through nav links, category filters, cart add/remove, and form submissions
 
 ## Known TODOs in the code
 
-Search for `TODO` — currently: two placeholder Formspree endpoints (`js/request.js`, `js/contact.js`), an unconfirmed "Pay Now" link target in `contact.html`, and a placeholder `INVENTORY_API_URL` (`REPLACE_WITH_WORKER_URL`) in `js/catalog.js`, `js/request.js`, and `js/inventory.js` that needs the real deployed Worker URL — see `worker/README.md`.
+Search for `TODO` — currently: an unconfirmed "Pay Now" link target in `contact.html`, and a placeholder `INVENTORY_API_URL` (`REPLACE_WITH_WORKER_URL`) in `js/catalog.js`, `js/request.js`, and `js/inventory.js` that needs the real deployed Worker URL — see `worker/README.md`. Both Formspree endpoints (`js/request.js`, `js/contact.js`) are now wired to real forms.
 
 ## Rules
 

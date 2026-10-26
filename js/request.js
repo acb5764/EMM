@@ -1,5 +1,3 @@
-// TODO: create a Formspree form (https://formspree.io) under Em.r.mangos@gmail.com
-// and replace this with the real endpoint before launch.
 const REQUEST_FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzebvkaw';
 
 document.addEventListener('DOMContentLoaded', async () => {
