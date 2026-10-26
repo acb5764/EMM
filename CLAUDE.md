@@ -37,7 +37,7 @@ Click through nav links, category filters, cart add/remove, and form submissions
 
 ## Known TODOs in the code
 
-Search for `TODO` — currently: two placeholder Formspree endpoints (`js/request.js`, `js/contact.js`), an unconfirmed "Pay Now" link target in `contact.html`, and a placeholder `INVENTORY_API_URL` (`REPLACE_WITH_WORKER_URL`) in `js/catalog.js`, `js/request.js`, and `js/inventory.js` that needs the real deployed Worker URL — see `worker/README.md`.
+Search for `TODO` — currently: an unconfirmed "Pay Now" link target in `contact.html`, and a placeholder `INVENTORY_API_URL` (`REPLACE_WITH_WORKER_URL`) in `js/catalog.js`, `js/request.js`, and `js/inventory.js` that needs the real deployed Worker URL — see `worker/README.md`.
 
 ## Rules
 
