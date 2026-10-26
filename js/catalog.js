@@ -16,6 +16,12 @@ const PLACEHOLDER_IMG = 'data:image/svg+xml;utf8,' + encodeURIComponent(
   '</svg>'
 );
 
+// Manual fallback photos for listings whose database record has no photos yet
+// (the inventory tools can only set photos on brand-new items, not existing ones).
+const PHOTO_OVERRIDES = {
+  'mango-tree-mahachanok-7gal': 'images/products/mango-tree-mahachanok-7gal-1.jpg'
+};
+
 let ALL_ITEMS = [];
 let activeCategory = 'all';
 let activeSize = 'all';
@@ -74,8 +80,9 @@ function formatPrice(item) {
 function itemCardHtml(item, opts = {}) {
   const { showActions = true } = opts;
   const avail = computeAvailability(item);
-  const hasPhoto = !!(item.photos && item.photos[0]);
-  const photo = hasPhoto ? item.photos[0] : PLACEHOLDER_IMG;
+  const fallbackPhoto = PHOTO_OVERRIDES[item.id];
+  const hasPhoto = !!((item.photos && item.photos[0]) || fallbackPhoto);
+  const photo = (item.photos && item.photos[0]) || fallbackPhoto || PLACEHOLDER_IMG;
   const disabled = avail.label === 'Sold Out' || avail.label === 'Coming Soon';
   const propagation = propagationLabel(item);
 
