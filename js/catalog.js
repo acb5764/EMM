@@ -71,11 +71,18 @@ function formatPrice(item) {
   return item.priceNote ? `${price} (${escapeHtml(item.priceNote)})` : price;
 }
 
+// Photos for items whose Mongo `photos` array is empty (it can't be edited after creation).
+const PHOTO_OVERRIDES = {
+  'mango-tree-fruit-punch-7gal': 'images/products/mango-tree-fruit-punch-1.jpg',
+  'mango-tree-fruit-punch-15gal': 'images/products/mango-tree-fruit-punch-1.jpg',
+};
+
 function itemCardHtml(item, opts = {}) {
   const { showActions = true } = opts;
   const avail = computeAvailability(item);
-  const hasPhoto = !!(item.photos && item.photos[0]);
-  const photo = hasPhoto ? item.photos[0] : PLACEHOLDER_IMG;
+  const itemPhoto = (item.photos && item.photos[0]) || PHOTO_OVERRIDES[item.id];
+  const hasPhoto = !!itemPhoto;
+  const photo = hasPhoto ? itemPhoto : PLACEHOLDER_IMG;
   const disabled = avail.label === 'Sold Out' || avail.label === 'Coming Soon';
   const propagation = propagationLabel(item);
 
